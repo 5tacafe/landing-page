@@ -25,7 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
 }
 
@@ -46,8 +47,8 @@ body::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
   z-index: 0;
   opacity: 0.07;
@@ -82,13 +83,13 @@ body::before {
 .bo5 { background: #6B3A1F; animation: bigOrbit2 25s linear infinite; animation-delay: -12s; }
 
 @keyframes bigOrbit {
-  0% { transform: rotate(0deg) translateX(220px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(220px) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateX(min(35vw, 220px)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(min(35vw, 220px)) rotate(-360deg); }
 }
 
 @keyframes bigOrbit2 {
-  0% { transform: rotate(0deg) translateX(160px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateX(min(25vw, 160px)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(min(25vw, 160px)) rotate(-360deg); }
 }
 
 /* MAIN CONTENT */
@@ -100,6 +101,8 @@ body::before {
   align-items: center;
   text-align: center;
   gap: 0;
+  width: 100%;
+  padding: 40px 20px;
 }
 
 /* COFFEE CUP ANIMATION */
@@ -202,7 +205,9 @@ body::before {
 }
 
 .logo-wrap img {
-  height: 120px;
+  height: clamp(80px, 15vw, 120px);
+  max-width: 100%;
+  object-fit: contain;
   filter: drop-shadow(0 0 30px rgba(201, 150, 59, 0.2));
   animation: logoFloat 4s ease-in-out infinite;
 }
@@ -214,7 +219,7 @@ body::before {
 
 /* TEXT */
 .eyebrow {
-  font-size: 11px;
+  font-size: clamp(9px, 2.5vw, 11px);
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--dorado);
@@ -241,11 +246,12 @@ body::before {
 }
 
 .subtitle {
-  font-size: 14px;
+  font-size: clamp(14px, 3.5vw, 16px);
   font-weight: 300;
   color: rgba(245, 236, 215, 0.55);
   letter-spacing: 0.06em;
-  margin-bottom: 48px;
+  margin-bottom: clamp(32px, 6vw, 48px);
+  line-height: 1.5;
   animation: fadeIn 1.5s ease forwards;
   opacity: 0;
   animation-delay: 0.9s;
@@ -298,7 +304,7 @@ body::before {
   align-items: center;
   gap: 16px;
   margin-bottom: 36px;
-  width: 260px;
+  width: min(260px, 80vw);
   animation: fadeIn 1.5s ease forwards;
   opacity: 0;
   animation-delay: 1.4s;
