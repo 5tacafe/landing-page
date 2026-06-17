@@ -10,12 +10,7 @@
 </head>
 <body>
 
-<!-- LANG TOGGLE -->
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('es')" id="btn-es">ES</button>
-  <div class="lang-divider"></div>
-  <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
-</div>
+
 
 <!-- NAV -->
 <nav id="navbar">
@@ -28,14 +23,23 @@
     <a href="#productores" data-es="Productores" data-en="Producers">Productores</a>
     <a href="#contacto" class="nav-cta" data-es="Contacto" data-en="Contact">Contacto</a>
   </div>
-  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-right">
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('es')" id="btn-es">ES</button>
+      <div class="lang-divider"></div>
+      <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+    </div>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="inicio">
-  <div class="hero-bg"></div>
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="assets/images/1080 .mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-scroll">
     <div class="scroll-line"></div>
@@ -53,9 +57,6 @@
         <a href="#menu" class="btn-gold" data-es="Ver Menú" data-en="See Menu">Ver Menú</a>
         <a href="#historia" class="btn-outline" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
       </div>
-    </div>
-    <div class="hero-badge">
-      <img src="assets/images/assets1.jpeg" alt="The Best Coffee Shops Honduras 2026">
     </div>
   </div>
 </section>
