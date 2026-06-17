@@ -27,6 +27,7 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--ff-body);background:var(--white);color:var(--ink);overflow-x:hidden;}
 img{display:block;max-width:100%;}
 a{text-decoration:none;color:inherit;}
+button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 
 /*==================================================
   LANGUAGE TOGGLE
@@ -58,7 +59,6 @@ nav{
   transition:all 0.4s ease;
 }
 nav.solid{background:var(--ink);padding:14px 60px;border-bottom:1px solid rgba(201,150,59,0.15);}
-.nav-logo img{height:48px;filter:drop-shadow(0 2px 12px rgba(0,0,0,0.5));}
 .nav-links{display:flex;gap:36px;align-items:center;}
 .nav-links a{
   font-family:var(--ff-label);font-size:11px;font-weight:400;
@@ -78,6 +78,7 @@ nav.solid{background:var(--ink);padding:14px 60px;border-bottom:1px solid rgba(2
 .nav-cta::after{display:none!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
 .hamburger span{width:24px;height:1.5px;background:var(--cream);transition:all 0.3s;}
+.nav-right{margin-left:auto;}
 
 /*==================================================
   HERO
@@ -89,6 +90,15 @@ nav.solid{background:var(--ink);padding:14px 60px;border-bottom:1px solid rgba(2
 .hero-video{
   position:absolute;inset:0;width:100%;height:100%;
   object-fit:cover;object-position:center;
+}
+.hero-logo{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:3;text-align:center;
+  opacity:0;animation:fadeIn 1.2s 0.4s forwards;
+}
+.hero-logo img{
+  width:clamp(140px,16vw,220px);
+  filter:drop-shadow(0 4px 40px rgba(0,0,0,0.6));
 }
 .hero-overlay{
   position:absolute;inset:0;
@@ -485,43 +495,249 @@ footer{
 .reveal-right.visible{opacity:1;transform:none;}
 
 /*==================================================
-  MOBILE
+  RESPONSIVE — Sistema de 4 breakpoints
+  768px  tablet / teléfonos grandes (landscape)
+  600px  teléfonos medianos
+  480px  teléfonos estándar (iPhone SE, Galaxy A)
+  360px  gama baja (320–360px viewport)
 ==================================================*/
-@media(max-width:960px){
-  nav{padding:16px 24px;}
-  nav.solid{padding:12px 24px;}
+
+/* ── 768px: Tablet / phablet ──────────────────── */
+@media(max-width:768px){
+
+  /* NAV */
+  nav{padding:14px 20px;}
+  nav.solid{padding:10px 20px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
+  .nav-right{gap:8px;}
   .nav-links.open{
     display:flex;flex-direction:column;gap:0;
-    position:fixed;inset:0;top:60px;background:var(--ink);
-    padding:40px 24px;z-index:800;
+    position:fixed;inset:0;top:56px;background:var(--ink);
+    padding:32px 24px;z-index:800;overflow-y:auto;
   }
   .nav-links.open a{
-    padding:16px 0;border-bottom:1px solid rgba(245,236,215,0.07);
-    font-size:16px;
+    padding:18px 0;border-bottom:1px solid rgba(245,236,215,0.08);
+    font-size:15px;letter-spacing:0.12em;
+    min-height:44px;display:flex;align-items:center;
   }
-  section{padding:70px 24px;}
-  .proceso{padding:70px 24px;}
-  .galeria{padding:70px 24px;}
-  .contacto{padding:70px 24px;}
-  .menu-section{padding:70px 24px;}
-  .historia-inner,.contacto-inner{grid-template-columns:1fr;gap:50px;}
+
+  /* HERO */
+  .hero{min-height:100svh;}
+  .hero-logo img{width:clamp(110px,24vw,160px);}
+  .hero-content{padding:0 24px 56px;}
+  .hero-text{max-width:100%;}
+  .hero-scroll{left:24px;bottom:28px;}
+
+  /* SECTIONS */
+  section{padding:72px 24px;}
+  .proceso{padding:72px 24px;}
+  .galeria{padding:72px 24px;}
+  .contacto{padding:72px 24px;}
+  .menu-section{padding:72px 24px;}
+  .cifras{padding:60px 24px;}
+
+  /* HISTORIA */
+  .historia-inner{grid-template-columns:1fr;gap:48px;}
+  .historia-main-img{height:420px;}
   .historia-float{display:none;}
-  .historia-year{top:12px;left:12px;}
-  .proceso-grid{grid-template-columns:1fr 1fr;}
-  .prod-grid{grid-template-columns:1fr 1fr;}
-  .cifras-inner{grid-template-columns:1fr 1fr;gap:30px;}
-  .cifra-divider{display:none;}
+  .historia-year{top:12px;left:12px;font-size:36px;padding:14px 18px;}
+
+  /* PROCESO */
+  .proceso-header{flex-direction:column;gap:20px;}
+  .proceso-grid{grid-template-columns:1fr 1fr;gap:3px;}
+  .proceso-card img{height:300px;}
+
+  /* MENÚ */
+  .menu-tabs{flex-wrap:wrap;gap:0;}
+  .menu-tab{padding:10px 20px;}
+  .menu-panel.active{grid-template-columns:1fr;}
+
+  /* GALERÍA */
+  .galeria-header{flex-direction:column;gap:16px;}
+  .galeria-header p{text-align:left;max-width:100%;}
   .galeria-grid{
     grid-template-columns:1fr 1fr;
-    grid-template-rows:auto;
+    grid-template-rows:auto;gap:3px;
   }
-  .g-1,.g-2,.g-3,.g-4,.g-5{grid-column:span 1;height:200px;}
-  .hero-content{flex-direction:column;align-items:flex-start;gap:20px;padding:0 24px 60px;}
-  .menu-panel.active{grid-template-columns:1fr;}
-  .menu-tabs{flex-wrap:wrap;}
-  footer{flex-direction:column;text-align:center;gap:20px;padding:30px 24px;}
-  .footer-links{flex-wrap:wrap;justify-content:center;}
-  .nav-right{gap:8px;}
+  .g-1,.g-2,.g-3,.g-4,.g-5{grid-column:span 1;height:220px;}
+
+  /* PRODUCTORES */
+  .prod-grid{grid-template-columns:1fr 1fr;gap:3px;}
+  .prod-card img{height:300px;}
+
+  /* CIFRAS */
+  .cifras-inner{grid-template-columns:1fr 1fr;gap:32px;}
+  .cifra-divider{display:none;}
+  .cifra{padding:0 20px;}
+
+  /* CONTACTO */
+  .contacto-inner{grid-template-columns:1fr;gap:48px;}
+  .social-row{flex-wrap:wrap;}
+
+  /* FOOTER */
+  footer{flex-direction:column;text-align:center;gap:18px;padding:28px 24px;}
+  .footer-links{flex-wrap:wrap;justify-content:center;gap:16px;}
 }
+
+/* ── 600px: Teléfonos medianos ────────────────── */
+@media(max-width:600px){
+
+  /* NAV */
+  nav{padding:12px 16px;}
+  nav.solid{padding:10px 16px;}
+  .lang-btn{padding:6px 10px;font-size:10px;}
+
+  /* HERO */
+  .hero-logo img{width:clamp(100px,28vw,140px);}
+  .hero-content{padding:0 20px 50px;}
+  .hero-title{font-size:clamp(40px,11vw,60px);line-height:1;}
+  .hero-sub{font-size:13px;max-width:100%;margin-bottom:28px;}
+  .hero-btns{flex-direction:column;gap:10px;width:100%;}
+  .btn-gold,.btn-outline{text-align:center;padding:15px 24px;font-size:11px;}
+  .hero-scroll{display:none;}
+
+  /* SECTIONS */
+  section{padding:60px 20px;}
+  .proceso{padding:60px 20px;}
+  .galeria{padding:60px 20px;}
+  .contacto{padding:60px 20px;}
+  .menu-section{padding:60px 20px;}
+  .cifras{padding:48px 20px;}
+  .section-title{font-size:clamp(28px,8vw,40px);}
+
+  /* HISTORIA */
+  .historia-main-img{height:320px;}
+  .award-row{flex-direction:column;gap:12px;text-align:center;}
+  .award-row img{width:48px;margin:0 auto;}
+
+  /* PROCESO */
+  .proceso-grid{grid-template-columns:1fr;}
+  .proceso-card img{height:240px;}
+
+  /* MENÚ */
+  .menu-tab{padding:10px 14px;font-size:10px;}
+  .menu-item{flex-direction:column;gap:8px;}
+  .menu-item-price{font-size:18px;}
+
+  /* GALERÍA */
+  .galeria-grid{grid-template-columns:1fr 1fr;gap:2px;}
+  .g-1,.g-2,.g-3,.g-4,.g-5{grid-column:span 1;height:170px;}
+
+  /* PRODUCTORES */
+  .prod-grid{grid-template-columns:1fr;}
+  .prod-card img{height:280px;}
+
+  /* CIFRAS */
+  .cifras-inner{grid-template-columns:1fr 1fr;gap:24px;}
+  .cifra-n{font-size:clamp(36px,10vw,56px);}
+
+  /* CONTACTO */
+  .social-row{gap:8px;}
+  .social-link{padding:10px 14px;font-size:9px;}
+  .form-input,.form-textarea{font-size:16px;} /* evita zoom en iOS */
+
+  /* FOOTER */
+  footer{padding:24px 20px;gap:16px;}
+  .footer-links{gap:12px;}
+}
+
+/* ── 480px: Teléfonos estándar ────────────────── */
+@media(max-width:480px){
+
+  /* NAV */
+  nav{padding:12px 16px;}
+  .nav-links.open{padding:24px 16px;top:52px;}
+  .nav-links.open a{font-size:14px;padding:16px 0;}
+
+  /* HERO */
+  .hero-logo img{width:clamp(90px,30vw,120px);}
+  .hero-content{padding:0 16px 44px;}
+  .hero-title{font-size:clamp(36px,12vw,52px);}
+  .hero-eyebrow{font-size:9px;letter-spacing:0.2em;}
+  .hero-sub{font-size:12px;}
+
+  /* SECTIONS */
+  section{padding:52px 16px;}
+  .proceso,.galeria,.contacto,.menu-section{padding:52px 16px;}
+  .cifras{padding:40px 16px;}
+  .eyebrow{font-size:9px;}
+  .section-title{font-size:clamp(26px,9vw,36px);}
+  .section-body{font-size:14px;}
+
+  /* HISTORIA */
+  .historia-main-img{height:260px;}
+  .historia-year{font-size:28px;padding:10px 14px;}
+
+  /* PROCESO */
+  .proceso-card img{height:200px;}
+  .proceso-n{font-size:48px;}
+
+  /* MENÚ */
+  .menu-tab{padding:9px 10px;font-size:9px;letter-spacing:0.08em;}
+  .menu-item{padding:18px 16px;}
+  .menu-item-name{font-size:17px;}
+  .menu-item-price{font-size:16px;}
+  .menu-item-desc{font-size:11px;}
+
+  /* GALERÍA */
+  .galeria-grid{grid-template-columns:1fr 1fr;gap:2px;}
+  .g-1,.g-2,.g-3,.g-4,.g-5{height:140px;}
+
+  /* CIFRAS */
+  .cifras-inner{grid-template-columns:1fr 1fr;gap:20px;}
+  .cifra{padding:0 8px;}
+  .cifra-n{font-size:clamp(32px,9vw,48px);}
+  .cifra-l{font-size:8px;}
+
+  /* CONTACTO */
+  .contact-row{gap:12px;}
+  .contact-icon{width:32px;height:32px;font-size:13px;}
+  .contact-val{font-size:13px;}
+
+  /* FOOTER */
+  .footer-copy{font-size:10px;}
+  .footer-links a{font-size:9px;}
+}
+
+/* ── 360px: Gama baja / pantallas pequeñas ────── */
+@media(max-width:360px){
+
+  nav{padding:10px 12px;}
+  .lang-btn{padding:5px 8px;font-size:9px;}
+
+  .hero-logo img{width:80px;}
+  .hero-title{font-size:32px;line-height:1.05;}
+  .hero-sub{font-size:11px;}
+  .btn-gold,.btn-outline{padding:13px 18px;font-size:10px;}
+
+  section{padding:44px 14px;}
+  .proceso,.galeria,.contacto,.menu-section{padding:44px 14px;}
+  .cifras{padding:36px 14px;}
+  .section-title{font-size:26px;}
+
+  .historia-main-img{height:220px;}
+  .proceso-card img{height:180px;}
+
+  .galeria-grid{grid-template-columns:1fr;}
+  .g-1,.g-2,.g-3,.g-4,.g-5{height:180px;grid-column:span 1;}
+
+  .prod-card img{height:230px;}
+
+  .cifras-inner{grid-template-columns:1fr 1fr;gap:16px;}
+  .cifra-n{font-size:30px;}
+
+  .menu-tab{padding:8px 8px;font-size:9px;letter-spacing:0.05em;}
+
+  footer{padding:20px 14px;}
+}
+
+/* ── Touch: desactivar hover-only effects ──────── */
+@media(hover:none){
+  .g-item:hover img{transform:none;filter:brightness(0.85);}
+  .g-item:hover::after{opacity:0;}
+  .proceso-card:hover img{transform:none;filter:brightness(0.55);}
+  .proceso-card:hover .proceso-desc{max-height:0;}
+  .prod-card:hover img{transform:none;}
+}
+
