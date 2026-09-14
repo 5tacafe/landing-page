@@ -206,9 +206,13 @@ nav.solid{
   z-index:3;text-align:center;
   opacity:0;animation:fadeIn 1.2s 0.4s forwards;
 }
-.hero-logo img{
-  width:clamp(140px,16vw,220px);
-  filter:drop-shadow(0 4px 40px rgba(0,0,0,0.6));
+.hero-logo img,
+.logo-wrap img {
+  width: clamp(140px, 16vw, 220px);
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 40px rgba(0, 0, 0, 0.6));
 }
 .hero-overlay{
   position:absolute;inset:0;
