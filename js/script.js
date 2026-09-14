@@ -1,10 +1,10 @@
 // Image map — local asset paths
 const IMGS = {
-  '1':  'assets/images/assets1.jpeg',
-  '2':  'assets/images/assets2.jpeg',
-  '3':  'assets/images/assets3.jpeg',
-  '4':  'assets/images/assets4.jpeg',
-  '5':  'assets/images/assets5.jpeg',
+  '1':  'assets/images/assets7.jpeg',
+  '2':  'assets/images/assets8.jpeg',
+  '3':  'assets/images/assets9.jpeg',
+  '4':  'assets/images/assets10.jpeg',
+  '5':  'assets/images/assets11.jpeg',
   '6':  'assets/images/assets6.jpeg',
   '7':  'assets/images/assets7.jpeg',
   '8':  'assets/images/assets8.jpeg',
@@ -37,8 +37,17 @@ function switchTab(id){
 }
 
 // LIGHTBOX
-function openLightbox(key){
-  document.getElementById('lb-img').src = IMGS[key]||key;
+function openLightbox(target){
+  let src = '';
+  if (typeof target === 'string') {
+    src = IMGS[target] || target;
+  } else if (target && target.querySelector) {
+    const img = target.querySelector('img');
+    if (img) src = img.src;
+  }
+  if (!src) return;
+
+  document.getElementById('lb-img').src = src;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
 }
