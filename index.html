@@ -1,815 +1,311 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>5ta Café — Productores desde 1890 · Guaimaca, Honduras</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@200;300;400;500;600&family=Space+Grotesk:wght@300;400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5ta Café — Productores de Café de Especialidad & Exportación desde 1890</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..600;1,300..600&family=Playfair+Display:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js" defer></script>
 </head>
-
 <body>
 
+<!-- ORBITING BEANS BG -->
+<div class="beans-bg">
+  <div class="bean-orbit bo1"></div>
+  <div class="bean-orbit bo2"></div>
+  <div class="bean-orbit bo3"></div>
+  <div class="bean-orbit bo4"></div>
+  <div class="bean-orbit bo5"></div>
+</div>
 
-
-  <!-- NAV -->
-  <nav id="navbar">
-    <a href="#inicio" class="nav-brand">
-      <img src="assets/images/logo.png" alt="5ta Café" class="nav-logo">
-      <span class="nav-brand-text">5ta Café</span>
+<!-- HEADER / NAVIGATION -->
+<header class="main-header" id="navbar">
+  <div class="header-container">
+    <a href="index.html" class="header-brand">
+      <img src="assets/images/logo.png" alt="5ta Café Logo" class="header-logo">
+      <div class="header-title-wrap">
+        <span class="header-brand-name">5ta Café</span>
+        <span class="header-brand-sub">Guaimaca · Honduras</span>
+      </div>
     </a>
 
-    <div class="nav-links" id="navlinks">
-      <div class="drawer-header">
-        <div class="drawer-brand">
-          <img src="assets/images/logo.png" alt="5ta Café" class="drawer-logo">
-          <div>
-            <div class="drawer-title">5ta Café</div>
-            <div class="drawer-sub" data-es="Productores desde 1890 · Guaimaca"
-              data-en="Producers since 1890 · Guaimaca">Productores desde 1890 · Guaimaca</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="drawer-menu-list">
-        <a href="#historia" onclick="closeMenu()">
-          <span class="nav-num">01</span>
-          <span data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#proceso" onclick="closeMenu()">
-          <span class="nav-num">02</span>
-          <span data-es="Proceso Cafetero" data-en="Coffee Process">Proceso Cafetero</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#menu" onclick="closeMenu()">
-          <span class="nav-num">03</span>
-          <span data-es="Nuestro Menú" data-en="Our Menu">Nuestro Menú</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#instagram" onclick="closeMenu()">
-          <span class="nav-num">04</span>
-          <span data-es="Comunidad @5tacafeoficial" data-en="@5tacafeoficial Community">Comunidad @5tacafeoficial</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#galeria" onclick="closeMenu()">
-          <span class="nav-num">05</span>
-          <span data-es="Galería de Fotos" data-en="Photo Gallery">Galería de Fotos</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#productores" onclick="closeMenu()">
-          <span class="nav-num">06</span>
-          <span data-es="Los Productores" data-en="The Producers">Los Productores</span>
-          <span class="nav-arrow">→</span>
-        </a>
-        <a href="#contacto" onclick="closeMenu()">
-          <span class="nav-num">07</span>
-          <span data-es="Visítanos & Contacto" data-en="Visit & Contact">Visítanos & Contacto</span>
-          <span class="nav-arrow">→</span>
-        </a>
-      </div>
-
-      <div class="drawer-footer">
-        <a href="https://wa.me/50432444105" target="_blank" rel="noopener noreferrer" class="nav-mobile-order-btn">
-          <svg class="wa-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path
-              d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.763.459 3.487 1.33 5.011l-1.413 5.161 5.281-1.386c1.474.804 3.14 1.228 4.771 1.228 5.506 0 9.969-4.463 9.969-9.969s-4.463-9.969-9.969-9.969zm0 17.938c-1.492 0-2.956-.4-4.237-1.161l-.304-.18-3.148.825.84-3.068-.198-.315c-.838-1.332-1.282-2.876-1.282-4.47 0-4.57 3.718-8.288 8.288-8.288 4.57 0 8.288 3.718 8.288 8.288 0 4.57-3.718 8.288-8.247 8.288zm4.542-6.208c-.249-.125-1.474-.727-1.703-.81-.228-.083-.395-.125-.561.125-.166.249-.644.81-.79 0.976-.145.166-.291.187-.54.062s-1.05-.387-2.001-1.234c-.74-.66-1.24-1.474-1.385-1.723-.145-.249-.015-.384.11-.508.112-.112.249-.291.374-.436.125-.145.166-.249.249-.415.083-.166.042-.312-.021-.436-.062-.125-.561-1.351-.769-1.85-.203-.487-.41-.421-.561-.428l-.478-.008c-.166 0-.436.062-.665.312s-.873.852-.873 2.079.894 2.41 1.018 2.576c.125.166 1.76 2.688 4.264 3.769.596.257 1.061.411 1.424.526.598.19 1.143.163 1.573.099.48-.072 1.474-.603 1.682-1.184.208-.582.208-1.08.145-1.184-.062-.104-.228-.166-.477-.291z" />
-          </svg>
-          <span data-es="Haz tu pedido por WhatsApp" data-en="Order via WhatsApp">Haz tu pedido por WhatsApp</span>
-        </a>
-        <div class="drawer-info-row">
-          <span>📍 Guaimaca, F.M., Honduras</span>
-          <span>☕ 7:00am – 7:00pm</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="nav-right">
-      <a href="#menu" class="nav-quick-menu-btn" title="Acceso directo al Menú">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
-          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
-          <line x1="6" y1="1" x2="6" y2="4"></line>
-          <line x1="10" y1="1" x2="10" y2="4"></line>
-          <line x1="14" y1="1" x2="14" y2="4"></line>
-        </svg>
-        <span data-es="Menú" data-en="Menu">Menú</span>
+    <!-- DUAL BRAND SWITCHER -->
+    <div class="brand-switcher">
+      <a href="index.html" class="switch-tab active" title="Origen & Exportación B2B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Exportación B2B</span>
       </a>
-
-      <a href="https://wa.me/50432444105" target="_blank" rel="noopener noreferrer" class="nav-order-btn"
-        title="Haz tu pedido por WhatsApp">
-        <svg class="wa-icon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
-          <path
-            d="M12.012 2c-5.506 0-9.969 4.463-9.969 9.969 0 1.763.459 3.487 1.33 5.011l-1.413 5.161 5.281-1.386c1.474.804 3.14 1.228 4.771 1.228 5.506 0 9.969-4.463 9.969-9.969s-4.463-9.969-9.969-9.969zm0 17.938c-1.492 0-2.956-.4-4.237-1.161l-.304-.18-3.148.825.84-3.068-.198-.315c-.838-1.332-1.282-2.876-1.282-4.47 0-4.57 3.718-8.288 8.288-8.288 4.57 0 8.288 3.718 8.288 8.288 0 4.57-3.718 8.288-8.247 8.288zm4.542-6.208c-.249-.125-1.474-.727-1.703-.81-.228-.083-.395-.125-.561.125-.166.249-.644.81-.79 0.976-.145.166-.291.187-.54.062s-1.05-.387-2.001-1.234c-.74-.66-1.24-1.474-1.385-1.723-.145-.249-.015-.384.11-.508.112-.112.249-.291.374-.436.125-.145.166-.249.249-.415.083-.166.042-.312-.021-.436-.062-.125-.561-1.351-.769-1.85-.203-.487-.41-.421-.561-.428l-.478-.008c-.166 0-.436.062-.665.312s-.873.852-.873 2.079.894 2.41 1.018 2.576c.125.166 1.76 2.688 4.264 3.769.596.257 1.061.411 1.424.526.598.19 1.143.163 1.573.099.48-.072 1.474-.603 1.682-1.184.208-.582.208-1.08.145-1.184-.062-.104-.228-.166-.477-.291z" />
-        </svg>
-        <span data-es="Haz tu pedido" data-en="Order now">Haz tu pedido</span>
+      <a href="cafe.html" class="switch-tab" title="Cafetería Local Guaimaca">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <span>Cafetería Local</span>
       </a>
+    </div>
 
-      <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLang('es')" id="btn-es">ES</button>
-        <div class="lang-divider"></div>
-        <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
-      </div>
-
-      <div class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="inicio">
-    <video class="hero-video" autoplay muted loop playsinline>
-      <source src="assets/images/1080 .mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-logo">
-      <img src="assets/images/logo.png" alt="5ta Café">
-    </div>
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      <span data-es="Descubrir" data-en="Discover">Descubrir</span>
-    </div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <p class="hero-eyebrow" data-es="Guaimaca, Honduras · Productores desde 1890"
-          data-en="Guaimaca, Honduras · Producers since 1890">Guaimaca, Honduras · Productores desde 1890</p>
-        <h1 class="hero-title">
-          <span data-es="El café de la" data-en="Coffee from the">El café de la</span><br>
-          <em data-es="montaña hondureña" data-en="Honduran mountain">montaña hondureña</em>
-        </h1>
-        <p class="hero-sub"
-          data-es="Cinco generaciones cultivando el mejor café de Guaimaca. Del grano a la taza, con más de 135 años de pasión y tradición familiar."
-          data-en="Five generations growing the finest coffee in Guaimaca. From bean to cup, with over 135 years of passion and family tradition.">
-          Cinco generaciones cultivando el mejor café de Guaimaca. Del grano a la taza, con más de 135 años de pasión y
-          tradición familiar.</p>
-        <div class="hero-btns">
-          <a href="#menu" class="btn-gold" data-es="Ver Menú" data-en="See Menu">Ver Menú</a>
-          <a href="#historia" class="btn-outline" data-es="Nuestra Historia" data-en="Our Story">Nuestra Historia</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-strip">
-    <div class="marquee-track" id="marquee">
-      <div class="marquee-item"><span data-es="Specialty Coffee" data-en="Specialty Coffee">Specialty Coffee</span><span
-          class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Productores desde 1890" data-en="Producers since 1890">Productores desde
-          1890</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Guaimaca, Honduras" data-en="Guaimaca, Honduras">Guaimaca,
-          Honduras</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Best Coffee Shop HN 2026" data-en="Best Coffee Shop HN 2026">Best Coffee
-          Shop HN 2026</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Café 100% Hondureño" data-en="100% Honduran Coffee">Café 100%
-          Hondureño</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="5ta Generación" data-en="5th Generation">5ta Generación</span><span
-          class="marquee-dot"></span></div>
-      <!-- duplicate -->
-      <div class="marquee-item"><span>Specialty Coffee</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Productores desde 1890" data-en="Producers since 1890">Productores desde
-          1890</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span>Guaimaca, Honduras</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span>Best Coffee Shop HN 2026</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="Café 100% Hondureño" data-en="100% Honduran Coffee">Café 100%
-          Hondureño</span><span class="marquee-dot"></span></div>
-      <div class="marquee-item"><span data-es="5ta Generación" data-en="5th Generation">5ta Generación</span><span
-          class="marquee-dot"></span></div>
-    </div>
+    <nav>
+      <ul class="nav-links" id="navlinks">
+        <li><a href="#origen" class="active">Herencia 1890</a></li>
+        <li><a href="#terruno">Procesamiento</a></li>
+        <li><a href="trade.html">Portal B2B</a></li>
+        <li><a href="cafe.html">Menú Local</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
 
-  <!-- HISTORIA -->
-  <section class="historia" id="historia">
-    <div class="historia-inner">
-      <div class="historia-img-col reveal-left">
-        <div class="historia-year">1890<span data-es="Fundación" data-en="Founded">Fundación</span></div>
-        <img class="historia-main-img" src="assets/images/assets18.jpeg" alt="Vivero 5ta Café">
-        <img class="historia-float" src="assets/images/logo_100.png" alt="Fundador en la finca">
-      </div>
-      <div class="historia-text reveal-right">
-        <p class="eyebrow" data-es="Nuestra historia" data-en="Our story">Nuestra historia</p>
-        <h2 class="section-title" data-es="Cinco generaciones creyendo en Guaimaca"
-          data-en="Five generations believing in Guaimaca">Cinco generaciones creyendo en Guaimaca</h2>
-        <div class="section-body">
-          <p data-es="En 1890, nuestra familia comenzó a cultivar café en las faldas de las montañas de Guaimaca. Lo que nació como un pequeño cultivo familiar se convirtió en una pasión transmitida de generación en generación."
-            data-en="In 1890, our family began cultivating coffee on the slopes of the Guaimaca mountains. What started as a small family farm became a passion passed down through generations.">
-            En 1890, nuestra familia comenzó a cultivar café en las faldas de las montañas de Guaimaca. Lo que nació
-            como un pequeño cultivo familiar se convirtió en una pasión transmitida de generación en generación.</p>
-          <p data-es="Hoy, 5ta Café es el resultado de más de 135 años de dedicación al grano: seleccionamos cada cereza a mano, cuidamos cada planta con respeto a la tierra y honramos la tradición de quienes nos precedieron."
-            data-en="Today, 5ta Café is the result of over 135 years of dedication to the bean: we hand-select every cherry, tend every plant with respect for the land, and honor the tradition of those who came before us.">
-            Hoy, 5ta Café es el resultado de más de 135 años de dedicación al grano: seleccionamos cada cereza a mano,
-            cuidamos cada planta con respeto a la tierra y honramos la tradición de quienes nos precedieron.</p>
-          <p data-es="Honduras es el quinto productor de café más grande del mundo. Nosotros ponemos el corazón de Guaimaca en cada taza."
-            data-en="Honduras is the fifth largest coffee producer in the world. We put the heart of Guaimaca in every cup.">
-            Honduras es el quinto productor de café más grande del mundo. Nosotros ponemos el corazón de Guaimaca en
-            cada taza.</p>
+<main class="main-wrapper">
+
+  <!-- HERO SECTION -->
+  <section class="hero-banner">
+    <div class="container">
+      
+      <!-- CUP ANIMATION -->
+      <div class="cup-scene">
+        <div class="steam-row">
+          <div class="steam s1"></div>
+          <div class="steam s2"></div>
+          <div class="steam s3"></div>
+          <div class="steam s4"></div>
         </div>
-        <div class="award-row">
-          <img src="assets/images/logo_100.png" alt="Award">
-          <div class="award-text">
-            <strong data-es="The Best Coffee Shops Honduras 2026" data-en="The Best Coffee Shops Honduras 2026">The Best
-              Coffee Shops Honduras 2026</strong>
-            <span
-              data-es="Reconocidos como la mejor cafetería de Honduras. Un honor que nos compromete a seguir creciendo."
-              data-en="Recognized as the best coffee shop in Honduras. An honor that commits us to keep growing.">Reconocidos
-              como la mejor cafetería de Honduras. Un honor que nos compromete a seguir creciendo.</span>
+        <div style="position:relative;">
+          <div class="cup-outer">
+            <div class="cup-inner"><div class="cup-crema"></div></div>
+            <div class="cup-handle"></div>
+          </div>
+        </div>
+        <div class="saucer"></div>
+      </div>
+
+      <p class="hero-eyebrow">Guaimaca, Francisco Morazán · Honduras &nbsp;·&nbsp; Productores desde 1890</p>
+      
+      <h1 class="hero-title">Café de Origen e Historia<br><em>para Importadores Globales</em></h1>
+      
+      <p class="hero-subtitle">Cultivamos y procesamos café verde de alta especialidad en las cordilleras de Guaimaca. Lotes trazables, micro-lotes de especialidad y contratos de exportación directa.</p>
+
+      <div class="cta-group">
+        <a href="trade.html" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Solicitar Muestras B2B
+        </a>
+        <a href="cafe.html" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+          Visitar Cafetería Local
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HERITAGE SECTION -->
+  <section id="origen" class="section-padding">
+    <div class="container text-center">
+      <span class="section-tag">Nuestra Identidad Productora</span>
+      <h2 class="section-title">Herencia Cafetalera de Guaimaca <em>desde 1890</em></h2>
+      <p class="section-desc">Desde hace más de 135 años, la familia de 5ta Café preserva las tradiciones agrícolas del valle de Guaimaca, combinando saberes ancestrales con innovación técnica para exportar granos de altura excepcionales.</p>
+
+      <div class="grid-3 text-left">
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="card-title">Linaje de 5 Generaciones</h3>
+          <p class="card-text">Cinco generaciones de caficultores dedicados a perfeccionar el cultivo de sombrío, cuidando la tierra y cada cereza desde la siembra hasta la cosecha manual selectiva.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="card-title">Terruño Privilegiado</h3>
+          <p class="card-text">Ubicados entre 1,200 y 1,650 msnm en Guaimaca, Francisco Morazán. Suelos ricos en minerales, microclimas frescos y bosques nubosos que aportan complejidad en taza.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="card-title">Trazabilidad Total B2B</h3>
+          <p class="card-text">Garantizamos trazabilidad por lote para tostadores e importadores en América del Norte, Europa y Asia, asegurando estándares de comercio directo y ética social.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSING & TERROIR SECTION -->
+  <section id="terruno" class="section-padding" style="background: rgba(0,0,0,0.25);">
+    <div class="container text-center">
+      <span class="section-tag">Procesos & Calidad</span>
+      <h2 class="section-title">Métodos de Procesamiento de <em>Especialidad</em></h2>
+      <p class="section-desc">Monitoreamos humedad, temperatura y tiempos de fermentación en beneficio ecológico para ofrecer perfiles consistentes y puntuaciones cupping superiores a 86+ puntos SCA.</p>
+
+      <div class="grid-3 text-left">
+        <div class="card">
+          <h3 class="card-title" style="color: var(--dorado-light);">Proceso Lavado (Fully Washed)</h3>
+          <p class="card-text">Fermentación limpia de 24-36 horas y secado en camas africanas. Taza balanceada con acidez brillante de manzana verde, panela, flor de azahar y final limpio.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title" style="color: var(--dorado-light);">Proceso Honey (Miel)</h3>
+          <p class="card-text">Despulpado conservando el mucílago natural. Aporta cuerpo sedoso, dulzor acentuado a miel de caña, frutos amarillos y notas de almendra tostada.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title" style="color: var(--dorado-light);">Proceso Natural & Anaeróbico</h3>
+          <p class="card-text">Cerezas maduras secadas lentamente al sol o fermentadas en tanques sellados sin oxígeno. Explosión frutal, notas de frambuesa, cacao nibs y vino suave.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B TRADE PROMO BANNER -->
+  <section class="section-padding">
+    <div class="container text-center">
+      <div style="background: var(--cafe-card); border: 1px solid var(--dorado); border-radius: 12px; padding: 48px 24px; position: relative;">
+        <span class="section-tag">Comercio Internacional</span>
+        <h2 class="section-title">Hub B2B de Exportación & <em>Lotes Disponibles</em></h2>
+        <p class="section-desc">Acceda a fichas técnicas de grano verde, perfiles de catación, certificados de origen y solicite kits de muestras de café verde o tostado directo a sus instalaciones.</p>
+        
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="trade.html" class="btn btn-primary">Ir al Hub de Comercio B2B</a>
+          <a href="trade.html#sample-request" class="btn btn-secondary">Solicitar Kit de Muestras</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL CAFE SECTION TEASER -->
+  <section class="section-padding" style="background: rgba(0,0,0,0.15);">
+    <div class="container text-center">
+      <span class="section-tag">Presencia Regional</span>
+      <h2 class="section-title">Cafetería & Espresso Bar en <em>Guaimaca</em></h2>
+      <p class="section-desc">Para nuestros visitantes y comunidad local, ofrecemos la experiencia del grano directo de la finca a la taza en nuestro punto de venta en el centro de Guaimaca.</p>
+      
+      <a href="cafe.html" class="btn btn-secondary">Ver Menú, Promociones y Horarios</a>
+    </div>
+  </section>
+
+  <!-- CONTACTO & MAPA -->
+  <section id="contacto" class="section-padding" style="background: rgba(0,0,0,0.2);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <span class="section-tag">Contacto & Ubicación</span>
+          <h2 class="section-title">Visítanos en <em>Guaimaca</em></h2>
+          <p class="section-desc">Estamos en el corazón de Guaimaca, Francisco Morazán. Ven a conocer la finca, vivir el proceso y tomar una taza de café recién tostado.</p>
+          
+          <div style="margin-top: 24px; margin-bottom: 24px; display: flex; flex-direction: column; gap: 12px;">
+            <p style="color: var(--crema);"><strong>Ubicación:</strong> Guaimaca, Francisco Morazán, Honduras</p>
+            <p style="color: var(--crema);"><strong>Horarios:</strong> Lunes – Domingo: 7:00 AM – 8:00 PM</p>
+            <p style="color: var(--crema);"><strong>WhatsApp:</strong> <a href="https://wa.me/50432444105" target="_blank" style="color: var(--dorado-light);">+504 3244-4105</a></p>
+          </div>
+
+          <!-- Web3Forms Contact Form -->
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" style="margin-top: 24px;">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <div style="margin-bottom: 12px;">
+              <input type="text" id="contact-name" name="name" class="form-input" placeholder="Tu Nombre Completo" style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid rgba(201,150,59,0.3); background: rgba(0,0,0,0.3); color: var(--crema);">
+            </div>
+            <div style="margin-bottom: 12px;">
+              <input type="email" id="contact-email" name="email" class="form-input" placeholder="Tu Correo Electrónico" style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid rgba(201,150,59,0.3); background: rgba(0,0,0,0.3); color: var(--crema);">
+            </div>
+            <div style="margin-bottom: 12px;">
+              <textarea id="contact-message" name="message" rows="4" class="form-textarea" placeholder="¿En qué podemos ayudarte?" style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid rgba(201,150,59,0.3); background: rgba(0,0,0,0.3); color: var(--crema);"></textarea>
+            </div>
+            <button type="submit" id="contact-submit" class="btn-contact-submit">
+              <span class="btn-submit-spinner"></span>
+              <span class="btn-submit-text">Enviar Mensaje</span>
+            </button>
+            <div id="form-status" class="form-status"></div>
+          </form>
+        </div>
+
+        <!-- Google Maps Embed -->
+        <div class="map-wrapper">
+          <div class="map-frame">
+            <iframe
+              src="https://maps.google.com/maps?q=H54C%2B5X8+Guaimaca+Francisco+Moraz%C3%A1n+Honduras&output=embed&hl=es&z=17"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="5ta Café — Guaimaca, Francisco Morazán, Honduras"
+            ></iframe>
+          </div>
+          <div class="map-footer">
+            <div class="map-badge">
+              <span class="map-pin-icon">📍</span>
+              <div class="map-badge-text">
+                <span class="map-badge-name">5ta Café</span>
+                <span class="map-badge-addr">H54C+5X8, Guaimaca, Francisco Morazán</span>
+              </div>
+            </div>
+            <a href="https://maps.app.goo.gl/RcfiNFFHfZaKudG59"
+               target="_blank" rel="noopener noreferrer"
+               class="map-directions-btn">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                <path d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+              </svg>
+              <span>Cómo llegar</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- INSTAGRAM FEED -->
-  <section class="instagram-section" id="instagram">
-    <div class="instagram-inner">
-      <div class="instagram-header reveal">
-        <div class="instagram-title-col">
-          <p class="eyebrow" data-es="Comunidad en Instagram" data-en="Instagram Community">Comunidad en Instagram</p>
-          <h2 class="section-title" data-es="Nuestra historia viva en @5tacafeoficial"
-            data-en="Our living story at @5tacafeoficial">
-            Nuestra historia viva en @5tacafeoficial</h2>
-          <div class="insta-live-badge" id="insta-live-indicator">
-            <span class="live-pulse-dot"></span>
-            <span data-es="Publicaciones en tiempo real" data-en="Real-time posts">Publicaciones en tiempo real</span>
-          </div>
-        </div>
-        <p class="instagram-subtitle"
-          data-es="De las montañas de Guaimaca a la taza diaria. Conéctate con nuestra comunidad y vive el proceso en tiempo real."
-          data-en="From the Guaimaca mountains to your daily cup. Connect with our community and experience the process in real time.">
-          De las montañas de Guaimaca a la taza diaria. Conéctate con nuestra comunidad y vive el proceso en tiempo
-          real.
-        </p>
+</main>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>5ta Café</h4>
+        <p>Productores de café de especialidad e importación directa desde 1890 en Guaimaca, Francisco Morazán, Honduras.</p>
       </div>
 
-      <!-- Social Subscription Banner / Profile Card -->
-      <div class="instagram-profile-card reveal">
-        <div class="insta-profile-info">
-          <div class="insta-avatar-wrapper">
-            <img src="assets/images/logo.png" alt="@5tacafeoficial Instagram Profile" class="insta-avatar">
-            <span class="insta-verify-badge">✓</span>
-          </div>
-          <div class="insta-user-details">
-            <div class="insta-handle-row">
-              <h3 class="insta-handle">@5tacafeoficial</h3>
-              <span class="insta-badge" data-es="Café de Especialidad" data-en="Specialty Coffee">Café de
-                Especialidad</span>
-            </div>
-            <p class="insta-bio" data-es="Productores desde 1890 · Guaimaca, Honduras ☕✨ The Best Coffee Shop HN 2026"
-              data-en="Producers since 1890 · Guaimaca, Honduras ☕✨ The Best Coffee Shop HN 2026">
-              Productores desde 1890 · Guaimaca, Honduras ☕✨ The Best Coffee Shop HN 2026
-            </p>
-          </div>
-        </div>
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer"
-          class="btn-insta-follow">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-            <path
-              d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      <div class="footer-col">
+        <h4>Exportación B2B</h4>
+        <ul>
+          <li><a href="trade.html">Disponibilidad de Lotes</a></li>
+          <li><a href="trade.html#sample-request">Solicitud de Muestras</a></li>
+          <li>Contacto Exportación: export@5tacafe.com</li>
+          <li>Puerto de Embarque: Puerto Cortés, Honduras</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Cafetería Local</h4>
+        <ul>
+          <li>Guaimaca, Calle Principal, Parque Central</li>
+          <li>Lunes - Sábado: 7:00 AM - 8:00 PM</li>
+          <li>Domingo: 8:00 AM - 6:00 PM</li>
+          <li><a href="cafe.html">Ver Menú de Cafetería</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <p style="margin-bottom: 12px;">Conoce el día a día en finca y cafetería:</p>
+        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" class="ig-btn">
+          <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
           </svg>
-          <span data-es="Seguir en Instagram" data-en="Follow on Instagram">Seguir en Instagram</span>
-        </a>
-      </div>
-
-      <!-- Instagram Posts Grid -->
-      <div class="instagram-grid" id="insta-grid">
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer"
-          class="insta-post reveal">
-          <img src="assets/images/assets4.jpeg" alt="Instagram Post - Espresso 5ta Café">
-          <div class="insta-overlay">
-            <div class="insta-overlay-content">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-              <p class="insta-caption" data-es="La taza perfecta empieza en la montaña de Guaimaca. ☕"
-                data-en="The perfect cup starts in the Guaimaca mountain. ☕">La taza perfecta empieza en la montaña de
-                Guaimaca. ☕</p>
-              <div class="insta-stats">
-                <span>❤️ 482</span>
-                <span>💬 38</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer"
-          class="insta-post reveal">
-          <img src="assets/images/assets9.jpeg" alt="Instagram Post - Cosecha de Café">
-          <div class="insta-overlay">
-            <div class="insta-overlay-content">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-              <p class="insta-caption" data-es="Cosecha manual de cerezas rojas maduras. 🌱"
-                data-en="Hand harvesting ripe red cherries. 🌱">Cosecha manual de cerezas rojas maduras. 🌱</p>
-              <div class="insta-stats">
-                <span>❤️ 615</span>
-                <span>💬 44</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer"
-          class="insta-post reveal">
-          <img src="assets/images/assets5.jpeg" alt="Instagram Post - Finca 5ta Café">
-          <div class="insta-overlay">
-            <div class="insta-overlay-content">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-              <p class="insta-caption" data-es="Amanecer sobre nuestras parcelas a 1200m. ⛰️"
-                data-en="Sunrise over our plots at 1200m. ⛰️">Amanecer sobre nuestras parcelas a 1200m. ⛰️</p>
-              <div class="insta-stats">
-                <span>❤️ 890</span>
-                <span>💬 52</span>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer"
-          class="insta-post reveal">
-          <img src="assets/images/assets10.jpeg" alt="Instagram Post - Tostado Artesanal">
-          <div class="insta-overlay">
-            <div class="insta-overlay-content">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
-              <p class="insta-caption" data-es="El arte del tueste preciso en nuestro beneficio. 🔥"
-                data-en="The art of precise roasting at our mill. 🔥">El arte del tueste preciso en nuestro beneficio.
-                🔥</p>
-              <div class="insta-stats">
-                <span>❤️ 530</span>
-                <span>💬 29</span>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Bottom Action CTA -->
-      <div class="instagram-footer reveal">
-        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" rel="noopener noreferrer" class="btn-gold"
-          data-es="Explorar más publicaciones" data-en="Explore more posts">
-          Explorar más publicaciones
+          <span>@5tacafeoficial</span>
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- PROCESO -->
-  <section class="proceso" id="proceso">
-    <div class="proceso-header reveal">
-      <div>
-        <p class="eyebrow" data-es="Del campo a la taza" data-en="From field to cup">Del campo a la taza</p>
-        <h2 class="section-title" data-es="El proceso que nos define" data-en="The process that defines us">El proceso
-          que nos define</h2>
-      </div>
-      <p data-es="Cada etapa está cuidada por manos expertas. La calidad no es un accidente, es el resultado de 135 años de aprendizaje."
-        data-en="Every step is tended by expert hands. Quality is not an accident — it's the result of 135 years of learning.">
-        Cada etapa está cuidada por manos expertas. La calidad no es un accidente, es el resultado de 135 años de
-        aprendizaje.</p>
-    </div>
-    <div class="proceso-grid">
-      <div class="proceso-card reveal">
-        <img src="assets/images/assets11.jpeg" alt="Cultivo">
-        <div class="proceso-info">
-          <div class="proceso-n">01</div>
-          <div class="proceso-label" data-es="Cultivo" data-en="Cultivation">Cultivo</div>
-          <div class="proceso-desc"
-            data-es="Plantas seleccionadas en alturas de montaña, cultivadas bajo sombra natural."
-            data-en="Selected plants grown at mountain altitude, cultivated under natural shade.">Plantas seleccionadas
-            en alturas de montaña, cultivadas bajo sombra natural.</div>
-        </div>
-      </div>
-      <div class="proceso-card reveal">
-        <img src="assets/images/assets7.jpeg" alt="Cosecha">
-        <div class="proceso-info">
-          <div class="proceso-n">02</div>
-          <div class="proceso-label" data-es="Cosecha" data-en="Harvest">Cosecha</div>
-          <div class="proceso-desc" data-es="Selección manual de cerezas en su punto óptimo de madurez. Sin atajos."
-            data-en="Manual selection of cherries at peak ripeness. No shortcuts.">Selección manual de cerezas en su
-            punto óptimo de madurez. Sin atajos.</div>
-        </div>
-      </div>
-      <div class="proceso-card reveal">
-        <img src="assets/images/assets17.jpeg" alt="Secado">
-        <div class="proceso-info">
-          <div class="proceso-n">03</div>
-          <div class="proceso-label" data-es="Secado natural" data-en="Natural drying">Secado natural</div>
-          <div class="proceso-desc" data-es="Secado en camas africanas bajo el sol de Guaimaca. Días de paciencia."
-            data-en="Dried on African beds under the Guaimaca sun. Days of patience.">Secado en camas africanas bajo el
-            sol de Guaimaca. Días de paciencia.</div>
-        </div>
-      </div>
-      <div class="proceso-card reveal">
-        <img src="assets/images/assets6.jpeg" alt="Trazabilidad">
-        <div class="proceso-info">
-          <div class="proceso-n">04</div>
-          <div class="proceso-label" data-es="Trazabilidad" data-en="Traceability">Trazabilidad</div>
-          <div class="proceso-desc" data-es="De la finca directo al cliente. Sabes exactamente de dónde viene tu café."
-            data-en="From the farm directly to you. You know exactly where your coffee comes from.">De la finca directo
-            al cliente. Sabes exactamente de dónde viene tu café.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MENÚ -->
-  <section class="menu-section" id="menu">
-    <div class="menu-inner">
-      <div class="menu-header reveal">
-        <p class="eyebrow" style="justify-content:center;" data-es="Lo que servimos" data-en="What we serve">Lo que
-          servimos</p>
-        <h2 class="section-title" data-es="Nuestro menú" data-en="Our menu">Nuestro menú</h2>
-      </div>
-      <div class="menu-tabs">
-        <button class="menu-tab active" onclick="switchTab('cafes')" data-es="Cafés" data-en="Coffees">Cafés</button>
-        <button class="menu-tab" onclick="switchTab('frios')" data-es="Bebidas frías" data-en="Cold drinks">Bebidas
-          frías</button>
-        <button class="menu-tab" onclick="switchTab('food')" data-es="Alimentos" data-en="Food">Alimentos</button>
-        <button class="menu-tab" onclick="switchTab('especiales')" data-es="Especiales"
-          data-en="Specials">Especiales</button>
-      </div>
-      <div class="menu-panel active" id="panel-cafes">
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Espresso</div>
-            <div class="menu-item-desc"
-              data-es="Doble shot de origen Guaimaca. Notas de chocolate oscuro y frutos secos."
-              data-en="Double shot from Guaimaca origin. Notes of dark chocolate and dried fruits.">Doble shot de origen
-              Guaimaca. Notas de chocolate oscuro y frutos secos.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Americano</div>
-            <div class="menu-item-desc" data-es="Espresso con agua caliente. Limpio y profundo."
-              data-en="Espresso with hot water. Clean and deep.">Espresso con agua caliente. Limpio y profundo.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cappuccino</div>
-            <div class="menu-item-desc" data-es="Espresso con leche vaporizada y espuma cremosa."
-              data-en="Espresso with steamed milk and creamy foam.">Espresso con leche vaporizada y espuma cremosa.
-            </div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Latte</div>
-            <div class="menu-item-desc" data-es="Espresso suave con mucha leche vaporizada. Ideal para el día."
-              data-en="Soft espresso with plenty of steamed milk. Perfect for the day.">Espresso suave con mucha leche
-              vaporizada. Ideal para el día.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Pour Over</div>
-            <div class="menu-item-desc" data-es="Preparación manual que resalta las notas florales del café de altura."
-              data-en="Manual brew that highlights the floral notes of high-altitude coffee.">Preparación manual que
-              resalta las notas florales del café de altura.</div>
-            <div class="menu-item-note" data-es="Specialty — origen único" data-en="Specialty — single origin">Specialty
-              — origen único</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Flat White</div>
-            <div class="menu-item-desc" data-es="Espresso concentrado con micro-espuma sedosa. Intenso y suave."
-              data-en="Concentrated espresso with silky micro-foam. Intense and smooth.">Espresso concentrado con
-              micro-espuma sedosa. Intenso y suave.</div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-panel" id="panel-frios">
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cold Brew</div>
-            <div class="menu-item-desc" data-es="24 horas de extracción en frío. Suave, dulce y sin amargura."
-              data-en="24-hour cold extraction. Smooth, sweet and bitterness-free.">24 horas de extracción en frío.
-              Suave, dulce y sin amargura.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Iced Latte</div>
-            <div class="menu-item-desc" data-es="Espresso sobre hielo con leche fría. Refrescante y equilibrado."
-              data-en="Espresso over ice with cold milk. Refreshing and balanced.">Espresso sobre hielo con leche fría.
-              Refrescante y equilibrado.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Frappé de Café</div>
-            <div class="menu-item-desc" data-es="Café de Guaimaca blended con hielo y leche. Cremoso y frío."
-              data-en="Guaimaca coffee blended with ice and milk. Creamy and cold.">Café de Guaimaca blended con hielo y
-              leche. Cremoso y frío.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Nitro Cold Brew</div>
-            <div class="menu-item-desc" data-es="Cold brew infusionado con nitrógeno. Textura sedosa y espuma natural."
-              data-en="Nitrogen-infused cold brew. Silky texture and natural foam.">Cold brew infusionado con nitrógeno.
-              Textura sedosa y espuma natural.</div>
-            <div class="menu-item-note" data-es="Edición especial" data-en="Special edition">Edición especial</div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-panel" id="panel-food">
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name" data-es="Pan de mantequilla" data-en="Butter bread">Pan de mantequilla</div>
-            <div class="menu-item-desc" data-es="Recién horneado cada mañana. Crujiente por fuera, suave por dentro."
-              data-en="Freshly baked every morning. Crispy outside, soft inside.">Recién horneado cada mañana. Crujiente
-              por fuera, suave por dentro.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Cheesecake</div>
-            <div class="menu-item-desc" data-es="Cheesecake artesanal con base de galleta. Acompañado de frutos rojos."
-              data-en="Artisan cheesecake with cookie base. Served with red berries.">Cheesecake artesanal con base de
-              galleta. Acompañado de frutos rojos.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name" data-es="Tostada con aguacate" data-en="Avocado toast">Tostada con aguacate
-            </div>
-            <div class="menu-item-desc" data-es="Pan artesanal con aguacate, sal de mar y aceite de oliva."
-              data-en="Artisan bread with avocado, sea salt and olive oil.">Pan artesanal con aguacate, sal de mar y
-              aceite de oliva.</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name" data-es="Brownie de café" data-en="Coffee brownie">Brownie de café</div>
-            <div class="menu-item-desc" data-es="Brownie húmedo con espresso de Guaimaca. Intenso y perfecto."
-              data-en="Moist brownie with Guaimaca espresso. Intense and perfect.">Brownie húmedo con espresso de
-              Guaimaca. Intenso y perfecto.</div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-panel" id="panel-especiales">
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">Café de Altura</div>
-            <div class="menu-item-desc"
-              data-es="Nuestro café insignia. Grano único de Guaimaca a 1200m. Notas de caramelo, naranja y jazmín."
-              data-en="Our signature coffee. Single bean from Guaimaca at 1200m. Notes of caramel, orange and jasmine.">
-              Nuestro café insignia. Grano único de Guaimaca a 1200m. Notas de caramelo, naranja y jazmín.</div>
-            <div class="menu-item-note" data-es="Edición limitada por temporada" data-en="Limited seasonal edition">
-              Edición limitada por temporada</div>
-          </div>
-        </div>
-        <div class="menu-item">
-          <div class="menu-item-info">
-            <div class="menu-item-name">5ta Experience</div>
-            <div class="menu-item-desc"
-              data-es="Cata guiada de 3 orígenes. Descubre las diferencias entre nuestros lotes."
-              data-en="Guided tasting of 3 origins. Discover the differences between our lots.">Cata guiada de 3
-              orígenes. Descubre las diferencias entre nuestros lotes.</div>
-            <div class="menu-item-note" data-es="Con reservación" data-en="By reservation">Con reservación</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERÍA -->
-  <section class="galeria" id="galeria">
-    <div class="galeria-header reveal">
-      <div>
-        <p class="eyebrow" data-es="Vida en la finca" data-en="Life on the farm">Vida en la finca</p>
-        <h2 class="section-title" data-es="Guaimaca en imágenes" data-en="Guaimaca in pictures">Guaimaca en imágenes
-        </h2>
-      </div>
-      <p data-es="Haz clic en cualquier foto para verla en grande." data-en="Click any photo to view it full size.">Haz
-        clic en cualquier foto para verla en grande.</p>
-    </div>
-    <div class="galeria-grid">
-      <div class="g-item g-1" onclick="openLightbox('assets/images/assets7.jpeg')"><img src="assets/images/assets7.jpeg"
-          alt="Familia productora"></div>
-      <div class="g-item g-2" onclick="openLightbox('assets/images/assets8.jpeg')"><img src="assets/images/assets8.jpeg"
-          alt="Café cherry"></div>
-      <div class="g-item g-3" onclick="openLightbox('assets/images/assets2.jpeg')"><img src="assets/images/assets2.jpeg"
-          alt="Mesas de secado"></div>
-      <div class="g-item g-4" onclick="openLightbox('assets/images/assets1.jpeg')"><img src="assets/images/assets1.jpeg"
-          alt="Vivero"></div>
-      <div class="g-item g-5" onclick="openLightbox('assets/images/assets11.jpeg')"><img
-          src="assets/images/assets11.jpeg" alt="En la plantación"></div>
-      <div class="g-item g-1" onclick="openLightbox('assets/images/assets3.jpeg')"><img src="assets/images/assets3.jpeg"
-          alt="En la plantación"></div>
-      <div class="g-item g-2" onclick="openLightbox('assets/images/assets13.jpeg')"><img
-          src="assets/images/assets13.jpeg" alt="En la plantación"></div>
-      <div class="g-item g-3" onclick="openLightbox('assets/images/assets14.jpeg')"><img
-          src="assets/images/assets14.jpeg" alt="En la plantación"></div>
-      <div class="g-item g-4" onclick="openLightbox('assets/images/assets15.jpeg')"><img
-          src="assets/images/assets15.jpeg" alt="En la plantación"></div>
-      <div class="g-item g-5" onclick="openLightbox('assets/images/assets16.jpeg')"><img
-          src="assets/images/assets16.jpeg" alt="En la plantación"></div>
-    </div>
-  </section>
-
-  <!-- PRODUCTORES -->
-  <section class="productores" id="productores">
-    <div class="prod-inner">
-      <div class="prod-header reveal">
-        <p class="eyebrow" style="justify-content:center;" data-es="Las personas detrás del café"
-          data-en="The people behind the coffee">Las personas detrás del café</p>
-        <h2 class="section-title" data-es="Los productores de Guaimaca" data-en="The producers of Guaimaca">Los
-          productores de Guaimaca</h2>
-        <p class="section-body"
-          data-es="Cada taza lleva el trabajo de familias que han dedicado su vida entera a la tierra y al grano."
-          data-en="Every cup carries the work of families who have dedicated their entire lives to the land and the bean.">
-          Cada taza lleva el trabajo de familias que han dedicado su vida entera a la tierra y al grano.</p>
-      </div>
-      <div class="prod-grid">
-        <div class="prod-card reveal"><img src="assets/images/assets12.jpeg" alt="Productor">
-          <div class="prod-card-body">
-            <div class="prod-card-role" data-es="Productor · 4ta generación" data-en="Producer · 4th generation">
-              Productor · 4ta generación</div>
-            <div class="prod-card-name" data-es="Don Carlos, caficultor" data-en="Don Carlos, coffee grower">Don Carlos,
-              caficultor</div>
-            <p class="prod-card-bio"
-              data-es="Más de 40 años cosechando café en las alturas de Guaimaca. Conoce cada planta como si fuera un hijo."
-              data-en="Over 40 years harvesting coffee in the heights of Guaimaca. He knows every plant as if it were his own.">
-              Más de 40 años cosechando café en las alturas de Guaimaca. Conoce cada planta como si fuera un hijo.</p>
-          </div>
-        </div>
-        <div class="prod-card reveal"><img src="assets/images/assets13.jpeg" alt="Familia productora">
-          <div class="prod-card-body">
-            <div class="prod-card-role" data-es="Familia productora" data-en="Producer family">Familia productora</div>
-            <div class="prod-card-name" data-es="La familia de la finca" data-en="The farm family">La familia de la
-              finca</div>
-            <p class="prod-card-bio"
-              data-es="Detrás de cada bolsa de 5ta Café hay una historia familiar. Gente que trabaja la tierra con orgullo genuino."
-              data-en="Behind every bag of 5ta Café is a family story. People who work the land with genuine pride.">
-              Detrás de cada bolsa de 5ta Café hay una historia familiar. Gente que trabaja la tierra con orgullo
-              genuino.</p>
-          </div>
-        </div>
-        <div class="prod-card reveal"><img src="assets/images/assets14.jpeg" alt="En la finca">
-          <div class="prod-card-body">
-            <div class="prod-card-role" data-es="5ta Generación" data-en="5th Generation">5ta Generación</div>
-            <div class="prod-card-name" data-es="El equipo 5ta Café" data-en="The 5ta Café team">El equipo 5ta Café
-            </div>
-            <p class="prod-card-bio"
-              data-es="Jóvenes con raíces profundas que combinan la tradición familiar con nuevas técnicas de specialty coffee."
-              data-en="Young people with deep roots combining family tradition with new specialty coffee techniques.">
-              Jóvenes con raíces profundas que combinan la tradición familiar con nuevas técnicas de specialty coffee.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CIFRAS -->
-  <div class="cifras reveal">
-    <div class="cifras-inner">
-      <div class="cifra">
-        <div class="cifra-n">1890</div>
-        <div class="cifra-l" data-es="Año de fundación" data-en="Year founded">Año de fundación</div>
-      </div>
-      <div class="cifra-divider"></div>
-      <div class="cifra">
-        <div class="cifra-n">5ta</div>
-        <div class="cifra-l" data-es="Generación productora" data-en="Producer generation">Generación productora</div>
-      </div>
-      <div class="cifra-divider"></div>
-      <div class="cifra">
-        <div class="cifra-n">100%</div>
-        <div class="cifra-l" data-es="Café hondureño" data-en="Honduran coffee">Café hondureño</div>
-      </div>
-      <div class="cifra-divider"></div>
-      <div class="cifra">
-        <div class="cifra-n">1200m</div>
-        <div class="cifra-l" data-es="Altura del cultivo" data-en="Growing altitude">Altura del cultivo</div>
-      </div>
+    <div class="footer-bottom">
+      © 2026 5ta Café. Todos los derechos reservados. Arquitectura Digital Dual (Exportación B2B / Cafetería Local). Sitio web diseñado por Mañe y desarrollado por Jules AI.
     </div>
   </div>
+</footer>
 
-  <!-- CONTACTO -->
-  <section class="contacto" id="contacto">
-    <div class="contacto-inner">
-      <div class="reveal-left">
-        <p class="eyebrow" data-es="Visítanos" data-en="Visit us">Visítanos</p>
-        <h2 class="section-title" data-es="Encuentra tu taza perfecta" data-en="Find your perfect cup">Encuentra tu taza
-          perfecta</h2>
-        <p class="section-body"
-          data-es="Estamos en el corazón de Guaimaca, Honduras. Ven a conocer la finca, vivir el proceso y tomar una taza de café con vista a la montaña."
-          data-en="We are in the heart of Guaimaca, Honduras. Come and discover the farm, experience the process and enjoy a cup of coffee with a mountain view.">
-          Estamos en el corazón de Guaimaca, Honduras. Ven a conocer la finca, vivir el proceso y tomar una taza de café
-          con vista a la montaña.</p>
-        <div class="contact-list">
-          <div class="contact-row">
-            <div class="contact-icon">⌖</div>
-            <div>
-              <div class="contact-label" data-es="Ubicación" data-en="Location">Ubicación</div>
-              <div class="contact-val">Guaimaca, Francisco Morazán, Honduras</div>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">◷</div>
-            <div>
-              <div class="contact-label" data-es="Horario" data-en="Hours">Horario</div>
-              <div class="contact-val" data-es="Lun – Vie: 7:00am – 7:00pm<br>Sáb – Dom: 7:00am – 8:00pm"
-                data-en="Mon – Fri: 7:00am – 7:00pm<br>Sat – Sun: 7:00am – 8:00pm">Lun – Vie: 7:00am – 7:00pm<br>Sáb –
-                Dom: 7:00am – 8:00pm</div>
-            </div>
-          </div>
-          <div class="contact-row">
-            <div class="contact-icon">◈</div>
-            <div>
-              <div class="contact-label">Facebook</div>
-              <div class="contact-val">@5tacafeoficial</div>
-            </div>
-          </div>
-        </div>
-        <div class="social-row">
-          <a href="https://www.facebook.com/5tacafeoficial" target="_blank" class="social-link">Facebook</a>
-          <a href="https://wa.me/50432444105" class="social-link">WhatsApp</a>
-          <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" class="social-link">Instagram</a>
-        </div>
-      </div>
-      <!-- Google Maps Embed -->
-      <div class="map-wrapper reveal-right">
-        <div class="map-frame">
-          <iframe
-            src="https://maps.google.com/maps?q=H54C%2B5X8+Guaimaca+Francisco+Moraz%C3%A1n+Honduras&output=embed&hl=es&z=17"
-            width="100%"
-            height="100%"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="5ta Café — Guaimaca, Francisco Morazán, Honduras"
-          ></iframe>
-        </div>
-        <div class="map-footer">
-          <div class="map-badge">
-            <span class="map-pin-icon">📍</span>
-            <div class="map-badge-text">
-              <span class="map-badge-name">5ta Café</span>
-              <span class="map-badge-addr">H54C+5X8, Guaimaca, Francisco Morazán</span>
-            </div>
-          </div>
-          <a href="https://maps.app.goo.gl/RcfiNFFHfZaKudG59"
-             target="_blank" rel="noopener noreferrer"
-             class="map-directions-btn">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-              <path d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
-            </svg>
-            <span data-es="Cómo llegar" data-en="Get directions">Cómo llegar</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo"><img src="assets/images/logo.png" alt="5ta Café"></div>
-    <div class="footer-links">
-      <a href="#historia" data-es="Historia" data-en="Story">Historia</a>
-      <a href="#menu" data-es="Menú" data-en="Menu">Menú</a>
-      <a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a>
-      <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
-    </div>
-    <div class="footer-copy">
-      <span data-es="© 2026 5ta Café · Guaimaca, Honduras. Todos los derechos reservados."
-        data-en="© 2026 5ta Café · Guaimaca, Honduras. All rights reserved.">© 2026 5ta Café · Guaimaca, Honduras. Todos
-        los derechos reservados.</span>
-      <div class="footer-designer">
-        <span data-es="Diseñado por" data-en="Designed by">Diseñado por</span>
-        <a href="https://maureenbarahona.foo" target="_blank" rel="noopener noreferrer" class="designer-link">Maureen
-          Barahona</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lb-close" onclick="closeLightbox()">✕</button>
-    <img id="lb-img" src="" alt="">
-  </div>
-
-  <script src="js/script.js"></script>
 </body>
-
 </html>
