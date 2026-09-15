@@ -157,3 +157,115 @@ async function loadInstagramFeed() {
 
 document.addEventListener('DOMContentLoaded', loadInstagramFeed);
 loadInstagramFeed();
+
+// ─────────────────────────────────────────────────
+//  CONTACT FORM — Web3Forms submission
+// ─────────────────────────────────────────────────
+(function () {
+  const form   = document.getElementById('contact-form');
+  const btn    = document.getElementById('contact-submit');
+  const status = document.getElementById('form-status');
+  if (!form || !btn || !status) return;
+
+  const MSGS = {
+    es: {
+      required : 'Por favor completa todos los campos.',
+      emailBad  : 'Ingresa un correo electrónico válido.',
+      sending   : 'Enviando…',
+      ok        : '✓ ¡Mensaje enviado! Te responderemos a la brevedad.',
+      fail      : '✗ Hubo un error al enviar. Intenta de nuevo o escríbenos por WhatsApp.',
+    },
+    en: {
+      required : 'Please fill in all fields.',
+      emailBad  : 'Enter a valid email address.',
+      sending   : 'Sending…',
+      ok        : '✓ Message sent! We\'ll get back to you soon.',
+      fail      : '✗ Something went wrong. Try again or reach us on WhatsApp.',
+    },
+  };
+
+  function msg(key) {
+    return MSGS[currentLang] ? MSGS[currentLang][key] : MSGS.es[key];
+  }
+
+  function setStatus(type, text) {
+    status.className = 'form-status visible ' + type;
+    status.textContent = text;
+  }
+
+  function clearStatus() {
+    status.className = 'form-status';
+    status.textContent = '';
+  }
+
+  function setBtn(state, label) {
+    btn.disabled = state === 'loading';
+    btn.className = 'btn-contact-submit ' + (state === 'idle' ? '' : state);
+    const textEl = btn.querySelector('.btn-submit-text');
+    if (textEl && label) textEl.textContent = label;
+  }
+
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    clearStatus();
+
+    const nameEl  = document.getElementById('contact-name');
+    const emailEl = document.getElementById('contact-email');
+    const msgEl   = document.getElementById('contact-message');
+
+    // Clear previous error highlights
+    [nameEl, emailEl, msgEl].forEach(el => el.classList.remove('error'));
+
+    // Client-side validation
+    let valid = true;
+    if (!nameEl.value.trim())  { nameEl.classList.add('error');  valid = false; }
+    if (!msgEl.value.trim())   { msgEl.classList.add('error');   valid = false; }
+    if (!emailEl.value.trim() || !validateEmail(emailEl.value)) {
+      emailEl.classList.add('error');
+      valid = false;
+    }
+    if (!valid) {
+      const errKey = !validateEmail(emailEl.value) && emailEl.value.trim()
+        ? 'emailBad' : 'required';
+      setStatus('error', msg(errKey));
+      return;
+    }
+
+    // Loading state
+    setBtn('loading', msg('sending'));
+
+    try {
+      const data = new FormData(form);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: data,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setBtn('success', '✓ ' + (currentLang === 'en' ? 'Sent!' : '¡Enviado!'));
+        setStatus('success', msg('ok'));
+        form.reset();
+        // Auto-reset after 5s
+        setTimeout(() => {
+          setBtn('idle', currentLang === 'en' ? 'Send message' : 'Enviar mensaje');
+          clearStatus();
+        }, 5000);
+      } else {
+        throw new Error(result.message || 'API error');
+      }
+    } catch (err) {
+      console.error('[ContactForm]', err);
+      setBtn('error-state', '✗ Error');
+      setStatus('error', msg('fail'));
+      setTimeout(() => {
+        setBtn('idle', currentLang === 'en' ? 'Send message' : 'Enviar mensaje');
+        clearStatus();
+      }, 6000);
+    }
+  });
+})();
