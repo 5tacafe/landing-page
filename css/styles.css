@@ -55,11 +55,26 @@ button,a{-webkit-tap-highlight-color:transparent;touch-action:manipulation;}
 ==================================================*/
 nav{
   position:fixed;top:0;left:0;right:0;z-index:900;
-  padding:24px 60px;display:flex;align-items:center;justify-content:space-between;
+  padding:20px 60px;display:flex;align-items:center;justify-content:space-between;
   transition:all 0.4s ease;
+  background:rgba(28,16,8,0.35);backdrop-filter:blur(8px);
 }
-nav.solid{background:var(--ink);padding:14px 60px;border-bottom:1px solid rgba(201,150,59,0.15);}
-.nav-links{display:flex;gap:36px;align-items:center;}
+nav.solid{
+  background:var(--ink);padding:14px 60px;
+  border-bottom:1px solid rgba(201,150,59,0.2);
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+.nav-brand{
+  display:flex;align-items:center;gap:10px;text-decoration:none;
+  transition:opacity 0.2s;flex-shrink:0;
+}
+.nav-brand:hover{opacity:0.9;}
+.nav-logo{height:34px;width:auto;object-fit:contain;}
+.nav-brand-text{
+  font-family:var(--ff-display);font-size:22px;font-weight:600;
+  color:var(--cream);letter-spacing:0.04em;white-space:nowrap;
+}
+.nav-links{display:flex;gap:32px;align-items:center;}
 .nav-links a{
   font-family:var(--ff-label);font-size:11px;font-weight:400;
   letter-spacing:0.15em;text-transform:uppercase;color:rgba(245,236,215,0.75);
@@ -73,12 +88,80 @@ nav.solid{background:var(--ink);padding:14px 60px;border-bottom:1px solid rgba(2
 .nav-links a:hover::after{width:100%;}
 .nav-cta{
   background:var(--gold)!important;color:var(--ink)!important;
-  padding:9px 22px!important;border-radius:1px;font-weight:500!important;
+  padding:9px 22px!important;border-radius:2px;font-weight:500!important;
 }
 .nav-cta::after{display:none!important;}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
-.hamburger span{width:24px;height:1.5px;background:var(--cream);transition:all 0.3s;}
-.nav-right{margin-left:auto;}
+
+.nav-right{
+  display:flex;align-items:center;gap:12px;margin-left:auto;
+}
+
+/* Quick Menu Access Button in Header */
+.nav-quick-menu-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(245,236,215,0.08);border:1px solid rgba(201,150,59,0.4);
+  color:var(--cream);padding:8px 14px;border-radius:2px;
+  font-family:var(--ff-label);font-size:10px;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;transition:all 0.25s ease;
+  white-space:nowrap;
+}
+.nav-quick-menu-btn:hover{
+  background:rgba(201,150,59,0.25);border-color:var(--gold);
+  color:var(--white);transform:translateY(-1px);
+}
+
+/* Highlighted "Haz tu pedido" WhatsApp CTA Button */
+.nav-order-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color:#ffffff!important;padding:8px 16px;border-radius:2px;
+  font-family:var(--ff-label);font-size:10px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  box-shadow:0 3px 12px rgba(37,211,102,0.35);
+  transition:all 0.25s ease;white-space:nowrap;
+  border:1px solid rgba(255,255,255,0.2);
+}
+.nav-order-btn:hover{
+  background:linear-gradient(135deg, #28e26f 0%, #0f7a6e 100%);
+  box-shadow:0 5px 18px rgba(37,211,102,0.55);
+  transform:translateY(-1px);
+}
+.nav-order-btn::after{display:none!important;}
+.wa-icon{flex-shrink:0;fill:currentColor;}
+
+/* Mobile drawer order button */
+.nav-mobile-order-btn{
+  display:none;margin-top:16px;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg, #25D366 0%, #128C7E 100%)!important;
+  color:#ffffff!important;padding:14px 20px!important;border-radius:2px;
+  font-family:var(--ff-label)!important;font-size:13px!important;font-weight:600!important;
+  letter-spacing:0.12em!important;text-transform:uppercase;
+  box-shadow:0 4px 16px rgba(37,211,102,0.4);border:none!important;
+}
+.nav-mobile-order-btn::after{display:none!important;}
+
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;align-items:center;
+  gap:5px;cursor:pointer;padding:6px;width:38px;height:38px;border-radius:4px;
+  background:rgba(245,236,215,0.06);border:1px solid rgba(201,150,59,0.3);
+  transition:all 0.3s ease;z-index:1001;position:relative;
+}
+.hamburger:hover,.hamburger.open{
+  background:rgba(201,150,59,0.2);border-color:var(--gold);
+}
+.hamburger span{
+  width:20px;height:2px;background:var(--cream);border-radius:2px;
+  transition:all 0.35s cubic-bezier(0.16, 1, 0.3, 1);transform-origin:center;
+}
+.hamburger.open span:nth-child(1){
+  transform:translateY(7px) rotate(45deg);background:var(--gold);
+}
+.hamburger.open span:nth-child(2){
+  opacity:0;transform:scaleX(0);
+}
+.hamburger.open span:nth-child(3){
+  transform:translateY(-7px) rotate(-45deg);background:var(--gold);
+}
 
 /*==================================================
   HERO
@@ -238,6 +321,104 @@ section{padding:110px 60px;}
   font-weight:500;color:var(--gold);margin-bottom:4px;
 }
 .award-text span{font-size:12px;font-weight:300;opacity:0.7;line-height:1.5;}
+
+/*==================================================
+  INSTAGRAM FEED (dark)
+==================================================*/
+.instagram-section{
+  background:var(--ink);padding:110px 60px;
+  border-top:1px solid rgba(201,150,59,0.15);
+  border-bottom:1px solid rgba(201,150,59,0.15);
+}
+.instagram-inner{max-width:1280px;margin:0 auto;}
+.instagram-header{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:48px;
+}
+.instagram-header .section-title{color:var(--cream);margin-bottom:0;}
+.instagram-subtitle{font-size:14px;font-weight:300;color:rgba(245,236,215,0.6);max-width:440px;line-height:1.8;}
+.insta-live-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(37,211,102,0.1);border:1px solid rgba(37,211,102,0.3);
+  color:#25D366;padding:4px 12px;border-radius:20px;
+  font-family:var(--ff-label);font-size:10px;letter-spacing:0.1em;
+  text-transform:uppercase;margin-top:10px;
+}
+.live-pulse-dot{
+  width:7px;height:7px;background-color:#25D366;border-radius:50%;
+  box-shadow:0 0 0 rgba(37,211,102,0.4);animation:pulseDot 1.8s infinite;
+}
+@keyframes pulseDot{
+  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7);}
+  70%{box-shadow:0 0 0 6px rgba(37,211,102,0);}
+  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
+}
+
+/* Profile Banner Card */
+.instagram-profile-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(201,150,59,0.25);border-radius:2px;
+  padding:24px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;
+  margin-bottom:48px;backdrop-filter:blur(10px);
+}
+.insta-profile-info{display:flex;align-items:center;gap:20px;}
+.insta-avatar-wrapper{position:relative;width:64px;height:64px;flex-shrink:0;}
+.insta-avatar{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--gold);}
+.insta-verify-badge{
+  position:absolute;bottom:0;right:0;width:20px;height:20px;
+  background:var(--gold);color:var(--ink);font-size:11px;font-weight:bold;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--ink);
+}
+.insta-handle-row{display:flex;align-items:center;gap:12px;margin-bottom:4px;}
+.insta-handle{font-family:var(--ff-display);font-size:24px;font-weight:600;color:var(--cream);}
+.insta-badge{
+  font-family:var(--ff-label);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;
+  background:rgba(201,150,59,0.15);color:var(--gold);border:1px solid rgba(201,150,59,0.3);
+  padding:3px 10px;border-radius:20px;
+}
+.insta-bio{font-size:13px;font-weight:300;color:rgba(245,236,215,0.7);}
+
+.btn-insta-follow{
+  display:inline-flex;align-items:center;gap:9px;
+  background:linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+  color:#ffffff!important;padding:12px 24px;border-radius:2px;
+  font-family:var(--ff-label);font-size:11px;font-weight:600;letter-spacing:0.12em;
+  text-transform:uppercase;transition:all 0.3s ease;white-space:nowrap;
+  box-shadow:0 4px 15px rgba(225,48,108,0.3);
+}
+.btn-insta-follow:hover{
+  transform:translateY(-2px);box-shadow:0 6px 20px rgba(225,48,108,0.5);
+  filter:brightness(1.1);
+}
+
+/* Instagram Posts Grid */
+.instagram-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;
+}
+.insta-post{
+  position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:2px;display:block;
+}
+.insta-post img{
+  width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.25,1,0.5,1);
+}
+.insta-overlay{
+  position:absolute;inset:0;background:rgba(16,6,2,0.85);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  opacity:0;transition:opacity 0.35s ease;
+}
+.insta-post:hover img{transform:scale(1.08);}
+.insta-post:hover .insta-overlay{opacity:1;}
+.insta-overlay-content{
+  text-align:center;color:var(--cream);display:flex;flex-direction:column;
+  align-items:center;gap:12px;
+}
+.insta-overlay-content svg{color:var(--gold);}
+.insta-caption{font-size:12px;font-weight:300;line-height:1.5;color:rgba(245,236,215,0.9);}
+.insta-stats{
+  display:flex;gap:16px;font-family:var(--ff-label);font-size:11px;
+  color:var(--gold);font-weight:500;
+}
+.instagram-footer{text-align:center;}
 
 /*==================================================
   PROCESO (dark)
@@ -516,22 +697,170 @@ footer{
 /* ── 768px: Tablet / phablet ──────────────────── */
 @media(max-width:768px){
 
+  /* Body lock scroll when menu open */
+  body.menu-open{
+    overflow:hidden!important;
+    touch-action:none;
+  }
+
   /* NAV */
-  nav{padding:14px 20px;}
-  nav.solid{padding:10px 20px;}
+  nav{
+    padding:12px 18px;
+    background:rgba(24,13,6,0.95);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(201,150,59,0.25);
+    box-shadow:0 4px 20px rgba(0,0,0,0.5);
+  }
+  nav.solid{padding:12px 18px;}
+  .nav-brand-text{font-size:18px;}
+  .nav-logo{height:28px;}
   .nav-links{display:none;}
   .hamburger{display:flex;}
   .nav-right{gap:8px;}
+  
   .nav-links.open{
-    display:flex;flex-direction:column;gap:0;
-    position:fixed;inset:0;top:56px;background:var(--ink);
-    padding:32px 24px;z-index:800;overflow-y:auto;
+    display:flex!important;
+    flex-direction:column;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top:56px;
+    height:calc(100vh - 56px);
+    background:linear-gradient(165deg, rgba(20,10,4,0.98) 0%, rgba(12,5,1,0.99) 100%);
+    backdrop-filter:blur(24px);
+    -webkit-backdrop-filter:blur(24px);
+    padding:20px 24px 36px;
+    z-index:999;
+    overflow-y:auto;
+    border-top:1px solid rgba(201,150,59,0.25);
+    box-shadow:0 10px 30px rgba(0,0,0,0.8);
+    animation:drawerSlideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
-  .nav-links.open a{
-    padding:18px 0;border-bottom:1px solid rgba(245,236,215,0.08);
-    font-size:15px;letter-spacing:0.12em;
-    min-height:44px;display:flex;align-items:center;
+
+  @keyframes drawerSlideDown{
+    from{opacity:0;transform:translateY(-15px);}
+    to{opacity:1;transform:translateY(0);}
   }
+
+  .drawer-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:18px;
+    margin-bottom:18px;
+    border-bottom:1px solid rgba(201,150,59,0.2);
+  }
+  .drawer-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .drawer-logo{
+    height:38px;
+    width:auto;
+  }
+  .drawer-title{
+    font-family:var(--ff-display);
+    font-size:22px;
+    font-weight:600;
+    color:var(--cream);
+    line-height:1.1;
+  }
+  .drawer-sub{
+    font-family:var(--ff-label);
+    font-size:9px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-top:2px;
+  }
+
+  .drawer-menu-list{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    flex-grow:1;
+    margin-bottom:24px;
+  }
+
+  .drawer-menu-list a{
+    display:flex!important;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 18px!important;
+    border-radius:4px;
+    background:rgba(255,255,255,0.025);
+    border:1px solid rgba(245,236,215,0.06);
+    font-size:15px!important;
+    font-weight:500;
+    color:var(--cream)!important;
+    letter-spacing:0.04em!important;
+    transition:all 0.25s ease;
+    min-height:50px;
+    opacity:0;
+    animation:drawerItemFadeUp 0.35s ease forwards;
+  }
+  .drawer-menu-list a:hover, .drawer-menu-list a:active{
+    background:rgba(201,150,59,0.18)!important;
+    border-color:rgba(201,150,59,0.45)!important;
+    color:var(--white)!important;
+    transform:translateX(4px);
+  }
+  .drawer-menu-list a::after{display:none!important;}
+
+  .drawer-menu-list a:nth-child(1){animation-delay:0.05s;}
+  .drawer-menu-list a:nth-child(2){animation-delay:0.10s;}
+  .drawer-menu-list a:nth-child(3){animation-delay:0.15s;}
+  .drawer-menu-list a:nth-child(4){animation-delay:0.20s;}
+  .drawer-menu-list a:nth-child(5){animation-delay:0.25s;}
+  .drawer-menu-list a:nth-child(6){animation-delay:0.30s;}
+  .drawer-menu-list a:nth-child(7){animation-delay:0.35s;}
+
+  @keyframes drawerItemFadeUp{
+    from{opacity:0;transform:translateY(12px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+
+  .nav-num{
+    font-family:var(--ff-label);
+    font-size:11px;
+    color:var(--gold);
+    font-weight:600;
+    margin-right:12px;
+  }
+  .nav-arrow{
+    font-size:16px;
+    color:rgba(245,236,215,0.3);
+    transition:all 0.25s ease;
+  }
+  .drawer-menu-list a:hover .nav-arrow{
+    color:var(--gold);
+    transform:translateX(4px);
+  }
+
+  .drawer-footer{
+    padding-top:16px;
+    border-top:1px solid rgba(201,150,59,0.2);
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    opacity:0;
+    animation:drawerItemFadeUp 0.35s 0.40s ease forwards;
+  }
+
+  .drawer-info-row{
+    display:flex;
+    justify-content:space-between;
+    font-family:var(--ff-label);
+    font-size:10px;
+    color:rgba(245,236,215,0.5);
+    letter-spacing:0.08em;
+  }
+
+  .nav-mobile-order-btn{display:flex!important;}
+  .nav-quick-menu-btn{padding:7px 11px;font-size:10px;}
+  .nav-order-btn{padding:7px 13px;font-size:10px;}
 
   /* HERO */
   .hero{
@@ -561,6 +890,14 @@ footer{
   .historia-main-img{height:420px;}
   .historia-float{display:none;}
   .historia-year{top:12px;left:12px;font-size:36px;padding:14px 18px;}
+
+  /* INSTAGRAM */
+  .instagram-section{padding:72px 24px;}
+  .instagram-header{flex-direction:column;gap:16px;align-items:flex-start;}
+  .instagram-subtitle{max-width:100%;}
+  .instagram-profile-card{flex-direction:column;align-items:flex-start;gap:20px;padding:20px;}
+  .btn-insta-follow{width:100%;justify-content:center;}
+  .instagram-grid{grid-template-columns:1fr 1fr;gap:12px;}
 
   /* PROCESO */
   .proceso-header{flex-direction:column;gap:20px;}
@@ -604,9 +941,13 @@ footer{
 @media(max-width:600px){
 
   /* NAV */
-  nav{padding:12px 16px;}
-  nav.solid{padding:10px 16px;}
-  .lang-btn{padding:6px 10px;font-size:10px;}
+  nav{padding:10px 14px;}
+  nav.solid{padding:10px 14px;}
+  .nav-brand-text{font-size:16px;}
+  .nav-logo{height:26px;}
+  .lang-btn{padding:5px 8px;font-size:9px;}
+  .nav-quick-menu-btn{padding:6px 9px;font-size:9px;}
+  .nav-order-btn{padding:6px 10px;font-size:9px;}
 
   /* HERO */
   .hero-logo{margin-left:20px;margin-bottom:16px;}
@@ -667,9 +1008,12 @@ footer{
 @media(max-width:480px){
 
   /* NAV */
-  nav{padding:12px 16px;}
-  .nav-links.open{padding:24px 16px;top:52px;}
+  nav{padding:10px 12px;}
+  .nav-brand-text{display:none;}
+  .nav-links.open{padding:24px 16px;top:48px;}
   .nav-links.open a{font-size:14px;padding:16px 0;}
+  .nav-quick-menu-btn{padding:5px 8px;font-size:9px;}
+  .nav-order-btn{padding:6px 9px;font-size:9px;gap:5px;}
 
   /* HERO */
   .hero-logo{margin-left:16px;margin-bottom:14px;}
@@ -681,11 +1025,13 @@ footer{
 
   /* SECTIONS */
   section{padding:52px 16px;}
-  .proceso,.galeria,.contacto,.menu-section{padding:52px 16px;}
+  .proceso,.galeria,.contacto,.menu-section,.instagram-section{padding:52px 16px;}
   .cifras{padding:40px 16px;}
   .eyebrow{font-size:9px;}
   .section-title{font-size:clamp(26px,9vw,36px);}
   .section-body{font-size:14px;}
+  .insta-handle{font-size:20px;}
+  .insta-bio{font-size:12px;}
 
   /* HISTORIA */
   .historia-main-img{height:260px;}
@@ -725,7 +1071,10 @@ footer{
 /* ── 360px: Gama baja / pantallas pequeñas ────── */
 @media(max-width:360px){
 
-  nav{padding:10px 12px;}
+  nav{padding:8px 8px;}
+  .lang-toggle{display:none;}
+  .nav-quick-menu-btn{padding:5px 7px;font-size:9px;}
+  .nav-order-btn{padding:5px 8px;font-size:9px;gap:4px;}
   .lang-btn{padding:5px 8px;font-size:9px;}
 
   .hero-logo{margin-left:14px;margin-bottom:12px;}
@@ -762,5 +1111,17 @@ footer{
   .proceso-card:hover img{transform:none;filter:brightness(0.55);}
   .proceso-card:hover .proceso-desc{max-height:0;}
   .prod-card:hover img{transform:none;}
+}
+
+/* ── Desktop Nav Adjustments ──────────────────── */
+@media(min-width: 769px){
+  .drawer-header, .drawer-footer, .nav-num, .nav-arrow{
+    display:none!important;
+  }
+  .drawer-menu-list{
+    display:flex;
+    gap:32px;
+    align-items:center;
+  }
 }
 
