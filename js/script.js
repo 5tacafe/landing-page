@@ -17,8 +17,32 @@ const navbar = document.getElementById('navbar');
 window.addEventListener('scroll',()=>navbar.classList.toggle('solid',scrollY>60));
 
 function toggleMenu(){
-  document.getElementById('navlinks').classList.toggle('open');
+  const navlinks = document.getElementById('navlinks');
+  const hamburger = document.getElementById('hamburger');
+  if(navlinks) {
+    const isOpen = navlinks.classList.toggle('open');
+    if(hamburger) hamburger.classList.toggle('open', isOpen);
+    document.body.classList.toggle('menu-open', isOpen);
+  }
 }
+
+function closeMenu(){
+  const navlinks = document.getElementById('navlinks');
+  const hamburger = document.getElementById('hamburger');
+  if(navlinks) {
+    navlinks.classList.remove('open');
+    if(hamburger) hamburger.classList.remove('open');
+    document.body.classList.remove('menu-open');
+  }
+}
+
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('navbar');
+  const navlinks = document.getElementById('navlinks');
+  if (navlinks && navlinks.classList.contains('open') && nav && !nav.contains(e.target)) {
+    closeMenu();
+  }
+});
 
 // REVEAL
 const observer = new IntersectionObserver(entries=>{
@@ -74,3 +98,62 @@ function setLang(lang){
   });
   document.documentElement.lang = lang;
 }
+
+// INSTAGRAM FEED - REAL TIME LOADER
+async function loadInstagramFeed() {
+  const grid = document.getElementById('insta-grid');
+  if (!grid) return;
+
+  const endpoints = [
+    'https://api.rss2json.com/v1/api.json?rss_url=https://rsshub.app/instagram/user/5tacafeoficial',
+    'https://api.rss2json.com/v1/api.json?rss_url=https://picnob.com/rss/user/5tacafeoficial',
+    'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://www.instagram.com/5tacafeoficial/?__a=1&__d=dis')
+  ];
+
+  for (const url of endpoints) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
+      const res = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+
+      if (!res.ok) continue;
+      const data = await res.json();
+
+      if (data && data.items && data.items.length >= 4) {
+        const posts = data.items.slice(0, 4);
+        const postEls = grid.querySelectorAll('.insta-post');
+
+        posts.forEach((item, i) => {
+          if (!postEls[i]) return;
+          const img = postEls[i].querySelector('img');
+          const caption = postEls[i].querySelector('.insta-caption');
+
+          let imgSrc = item.thumbnail || item.enclosure?.link;
+          if (!imgSrc && item.content) {
+            const m = item.content.match(/src=["'](.*?)["']/);
+            if (m) imgSrc = m[1];
+          }
+
+          if (imgSrc && img) img.src = imgSrc;
+          if (item.link) postEls[i].href = item.link;
+          if (caption && item.title) {
+            const clean = item.title.replace(/<[^>]*>?/gm, '').trim();
+            if (clean) caption.textContent = clean.length > 70 ? clean.substring(0, 67) + '...' : clean;
+          }
+        });
+
+        const indicator = document.getElementById('insta-live-indicator');
+        if (indicator) {
+          indicator.classList.add('live-active');
+        }
+        return;
+      }
+    } catch (e) {
+      // Smooth fallback to local curated post assets
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadInstagramFeed);
+loadInstagramFeed();
