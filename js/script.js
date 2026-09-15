@@ -1,162 +1,145 @@
-// Image map — local asset paths
-const IMGS = {
-  '1':  'assets/images/assets7.jpeg',
-  '2':  'assets/images/assets8.jpeg',
-  '3':  'assets/images/assets9.jpeg',
-  '4':  'assets/images/assets10.jpeg',
-  '5':  'assets/images/assets11.jpeg',
-  '6':  'assets/images/assets6.jpeg',
-  '7':  'assets/images/assets7.jpeg',
-  '8':  'assets/images/assets8.jpeg',
-  '9':  'assets/images/assets9.jpeg',
-  '10': 'assets/images/assets10.jpeg',
-};
+/* =================================================================
+   5TA CAFÉ - Dual-Brand Platform Script
+   Handles navigation, language switching, B2B sample form,
+   Instagram feed loading, and Web3Forms contact form submission.
+   ================================================================= */
 
-// NAV
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll',()=>navbar.classList.toggle('solid',scrollY>60));
-
-function toggleMenu(){
-  const navlinks = document.getElementById('navlinks');
-  const hamburger = document.getElementById('hamburger');
-  if(navlinks) {
-    const isOpen = navlinks.classList.toggle('open');
-    if(hamburger) hamburger.classList.toggle('open', isOpen);
-    document.body.classList.toggle('menu-open', isOpen);
-  }
-}
-
-function closeMenu(){
-  const navlinks = document.getElementById('navlinks');
-  const hamburger = document.getElementById('hamburger');
-  if(navlinks) {
-    navlinks.classList.remove('open');
-    if(hamburger) hamburger.classList.remove('open');
-    document.body.classList.remove('menu-open');
-  }
-}
-
-document.addEventListener('click', (e) => {
-  const nav = document.getElementById('navbar');
-  const navlinks = document.getElementById('navlinks');
-  if (navlinks && navlinks.classList.contains('open') && nav && !nav.contains(e.target)) {
-    closeMenu();
-  }
-});
-
-// REVEAL
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.1});
-document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>observer.observe(el));
-
-// MENU TABS
-function switchTab(id){
-  document.querySelectorAll('.menu-tab').forEach((t,i)=>{
-    t.classList.toggle('active',t.getAttribute('onclick').includes(id));
-  });
-  document.querySelectorAll('.menu-panel').forEach(p=>{
-    p.classList.toggle('active',p.id==='panel-'+id);
-  });
-}
-
-// LIGHTBOX
-function openLightbox(target){
-  let src = '';
-  if (typeof target === 'string') {
-    src = IMGS[target] || target;
-  } else if (target && target.querySelector) {
-    const img = target.querySelector('img');
-    if (img) src = img.src;
-  }
-  if (!src) return;
-
-  document.getElementById('lb-img').src = src;
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeLightbox(){
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
-
-// LANGUAGE
+// Global Language State
 let currentLang = 'es';
-function setLang(lang){
+
+function setLanguage(lang) {
   currentLang = lang;
-  document.getElementById('btn-es').classList.toggle('active',lang==='es');
-  document.getElementById('btn-en').classList.toggle('active',lang==='en');
-  // Update all data-es/data-en elements
-  document.querySelectorAll('[data-es]').forEach(el=>{
-    const val = el.getAttribute('data-'+lang);
-    if(val) el.innerHTML = val;
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
   });
-  // Placeholders
-  document.querySelectorAll('[data-placeholder-'+lang+']').forEach(el=>{
-    el.placeholder = el.getAttribute('data-placeholder-'+lang);
+
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const text = el.getAttribute(`data-${lang}`);
+    if (text) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = text;
+      } else {
+        el.innerHTML = text;
+      }
+    }
   });
-  document.documentElement.lang = lang;
 }
 
-// INSTAGRAM FEED - REAL TIME LOADER
+// Instagram Feed Loader
 async function loadInstagramFeed() {
-  const grid = document.getElementById('insta-grid');
-  if (!grid) return;
+  const instaGrid = document.getElementById('insta-grid');
+  if (!instaGrid) return;
+  // Instagram feed elements are rendered in HTML templates
+}
 
-  const endpoints = [
-    'https://api.rss2json.com/v1/api.json?rss_url=https://rsshub.app/instagram/user/5tacafeoficial',
-    'https://api.rss2json.com/v1/api.json?rss_url=https://picnob.com/rss/user/5tacafeoficial',
-    'https://api.allorigins.win/raw?url=' + encodeURIComponent('https://www.instagram.com/5tacafeoficial/?__a=1&__d=dis')
-  ];
+// DOM CONTENT LOADED LOGIC
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('5ta Café - Platform loaded.');
 
-  for (const url of endpoints) {
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2500);
-      const res = await fetch(url, { signal: controller.signal });
-      clearTimeout(timeoutId);
+  loadInstagramFeed();
 
-      if (!res.ok) continue;
-      const data = await res.json();
+  // Mobile menu toggle
+  const hamburger = document.getElementById('hamburger');
+  const navlinks = document.getElementById('navlinks');
+  if (hamburger && navlinks) {
+    hamburger.addEventListener('click', () => {
+      navlinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+  }
 
-      if (data && data.items && data.items.length >= 4) {
-        const posts = data.items.slice(0, 4);
-        const postEls = grid.querySelectorAll('.insta-post');
+  // B2B Sample Request Form Handling
+  const sampleForm = document.getElementById('b2bSampleForm');
+  const formErrorMsg = document.getElementById('formErrorMessage');
+  const modal = document.getElementById('confirmationModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const modalRefCode = document.getElementById('modalRefCode');
 
-        posts.forEach((item, i) => {
-          if (!postEls[i]) return;
-          const img = postEls[i].querySelector('img');
-          const caption = postEls[i].querySelector('.insta-caption');
+  if (sampleForm) {
+    sampleForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (formErrorMsg) formErrorMsg.style.display = 'none';
 
-          let imgSrc = item.thumbnail || item.enclosure?.link;
-          if (!imgSrc && item.content) {
-            const m = item.content.match(/src=["'](.*?)["']/);
-            if (m) imgSrc = m[1];
-          }
+      // Extract form inputs
+      const businessName = document.getElementById('businessName')?.value.trim();
+      const contactName = document.getElementById('contactName')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const country = document.getElementById('country')?.value.trim();
+      const targetVolume = document.getElementById('targetVolume')?.value.trim();
+      const roastProfileChecked = sampleForm.querySelector('input[name="roastProfile"]:checked');
+      const selectedLot = document.getElementById('selectedLot')?.value.trim();
 
-          if (imgSrc && img) img.src = imgSrc;
-          if (item.link) postEls[i].href = item.link;
-          if (caption && item.title) {
-            const clean = item.title.replace(/<[^>]*>?/gm, '').trim();
-            if (clean) caption.textContent = clean.length > 70 ? clean.substring(0, 67) + '...' : clean;
-          }
-        });
+      const errors = [];
 
-        const indicator = document.getElementById('insta-live-indicator');
-        if (indicator) {
-          indicator.classList.add('live-active');
+      if (!businessName) errors.push('Nombre de Empresa / Importadora es obligatorio.');
+      if (!contactName) errors.push('Nombre de Contacto es obligatorio.');
+      if (!email) {
+        errors.push('Correo electrónico corporativo es obligatorio.');
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errors.push('Por favor ingrese una dirección de correo electrónico válida.');
+      }
+      if (!country) errors.push('País / Región de Destino es obligatorio.');
+      if (!targetVolume) errors.push('Debe seleccionar un Volumen Objetivo Estimado.');
+      if (!roastProfileChecked) errors.push('Debe seleccionar un Perfil de Tostado Preferido.');
+
+      if (errors.length > 0) {
+        if (formErrorMsg) {
+          formErrorMsg.innerHTML = '<strong>Error en el formulario:</strong><br>' + errors.join('<br>');
+          formErrorMsg.style.display = 'block';
+          formErrorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
         return;
       }
-    } catch (e) {
-      // Smooth fallback to local curated post assets
-    }
-  }
-}
 
-document.addEventListener('DOMContentLoaded', loadInstagramFeed);
-loadInstagramFeed();
+      // Generate Reference Code
+      const randomCode = Math.floor(1000 + Math.random() * 9000);
+      const refCode = `REQ-5TA-${new Date().getFullYear()}-${randomCode}`;
+
+      if (modalRefCode) {
+        modalRefCode.textContent = refCode;
+      }
+
+      // Show confirmation modal
+      if (modal) {
+        modal.classList.add('active');
+      }
+
+      // Reset form
+      sampleForm.reset();
+    });
+  }
+
+  // Close Modal Handler
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+  }
+
+  // Lot selection auto-fill buttons
+  const lotButtons = document.querySelectorAll('.btn-select-lot');
+  const selectedLotInput = document.getElementById('selectedLot');
+  const sampleRequestSection = document.getElementById('sample-request');
+
+  lotButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lotName = btn.getAttribute('data-lot');
+      if (selectedLotInput && lotName) {
+        selectedLotInput.value = lotName;
+      }
+      if (sampleRequestSection) {
+        sampleRequestSection.scrollIntoView({ behavior: 'smooth' });
+        if (selectedLotInput) selectedLotInput.focus();
+      }
+    });
+  });
+});
 
 // ─────────────────────────────────────────────────
 //  CONTACT FORM — Web3Forms submission
@@ -250,7 +233,6 @@ loadInstagramFeed();
         setBtn('success', '✓ ' + (currentLang === 'en' ? 'Sent!' : '¡Enviado!'));
         setStatus('success', msg('ok'));
         form.reset();
-        // Auto-reset after 5s
         setTimeout(() => {
           setBtn('idle', currentLang === 'en' ? 'Send message' : 'Enviar mensaje');
           clearStatus();

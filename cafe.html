@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5ta Café — Cafetería & Espresso Bar en Guaimaca</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..600;1,300..600&family=Playfair+Display:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js" defer></script>
+</head>
+<body>
+
+<!-- ORBITING BEANS BG -->
+<div class="beans-bg">
+  <div class="bean-orbit bo1"></div>
+  <div class="bean-orbit bo2"></div>
+  <div class="bean-orbit bo3"></div>
+  <div class="bean-orbit bo4"></div>
+  <div class="bean-orbit bo5"></div>
+</div>
+
+<!-- HEADER / NAVIGATION -->
+<header class="main-header">
+  <div class="header-container">
+    <a href="cafe.html" class="header-brand">
+      <img src="assets/images/logo.png" alt="5ta Café Logo" class="header-logo">
+      <div class="header-title-wrap">
+        <span class="header-brand-name">5ta Café</span>
+        <span class="header-brand-sub">Cafetería Guaimaca</span>
+      </div>
+    </a>
+
+    <!-- DUAL BRAND SWITCHER -->
+    <div class="brand-switcher">
+      <a href="index.html" class="switch-tab" title="Origen & Exportación B2B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Exportación B2B</span>
+      </a>
+      <a href="cafe.html" class="switch-tab active" title="Cafetería Local Guaimaca">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <span>Cafetería Local</span>
+      </a>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#menu" class="active">Menú &amp; Bebidas</a></li>
+        <li><a href="#promos">Promociones</a></li>
+        <li><a href="#ubicar">Ubicación &amp; Horarios</a></li>
+        <li><a href="trade.html">Exportación B2B</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-wrapper">
+
+  <!-- CAFE HERO -->
+  <section class="hero-banner">
+    <div class="container">
+      
+      <!-- CUP ANIMATION -->
+      <div class="cup-scene">
+        <div class="steam-row">
+          <div class="steam s1"></div>
+          <div class="steam s2"></div>
+          <div class="steam s3"></div>
+          <div class="steam s4"></div>
+        </div>
+        <div style="position:relative;">
+          <div class="cup-outer">
+            <div class="cup-inner"><div class="cup-crema"></div></div>
+            <div class="cup-handle"></div>
+          </div>
+        </div>
+        <div class="saucer"></div>
+      </div>
+
+      <p class="hero-eyebrow">Guaimaca, Francisco Morazán &nbsp;·&nbsp; Punto de Venta Retail</p>
+      <h1 class="hero-title">Cafetería Artesanal &nbsp;&amp;<br><em>Espresso Bar Local</em></h1>
+      <p class="hero-subtitle">Disfruta de la frescura del café recién tostado de nuestra propia finca en un ambiente cálido y acogedor en el corazón de Guaimaca.</p>
+
+      <div class="cta-group">
+        <a href="#menu" class="btn btn-primary">Ver Menú de Bebidas</a>
+        <a href="#ubicar" class="btn btn-secondary">Ubicación y Horarios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORE LOCATION & HOURS BANNER -->
+  <section id="ubicar" class="section-padding" style="background: rgba(0,0,0,0.25);">
+    <div class="container text-center">
+      <span class="section-tag">Visítanos</span>
+      <h2 class="section-title">Horarios de Atención & <em>Ubicación</em></h2>
+      <p class="section-desc">Estamos ubicados en el centro histórico de Guaimaca. Ofrecemos espacio climatizado, conexión Wi-Fi para clientes y café recién preparado por baristas locales.</p>
+
+      <div class="grid-3 text-left">
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="card-title">Dirección Local</h3>
+          <p class="card-text">Calle Principal, frente al Parque Central, Guaimaca, Francisco Morazán, Honduras.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="card-title">Horario de Servicio</h3>
+          <p class="card-text">
+            <strong>Lunes a Sábado:</strong> 7:00 AM – 8:00 PM<br>
+            <strong>Domingo:</strong> 8:00 AM – 6:00 PM
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="card-title">Contacto & Pedidos</h3>
+          <p class="card-text">
+            Teléfono: +504 2769-5500<br>
+            Pedidos locales y reservaciones de eventos comunitarios.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CAFE MENU SECTION -->
+  <section id="menu" class="section-padding">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-tag">Nuestra Carta</span>
+        <h2 class="section-title">Menú de la <em>Cafetería</em></h2>
+        <p class="section-desc">Todos nuestros cafés son elaborados con grano 100% de origen Guaimaca, tostado semanalmente en pequeños lotes.</p>
+      </div>
+
+      <div class="grid-2">
+        
+        <!-- CATEGORY 1: ESPRESSO BAR -->
+        <div class="card">
+          <h3 class="menu-cat-title">Espresso Bar &amp; Tradicionales</h3>
+          
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Espresso Doble de Finca</div>
+              <div class="menu-item-desc">Extracción concentrada con crema dorada y notas a chocolate amargo.</div>
+            </div>
+            <div class="menu-item-price">L. 45</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Cappuccino Artesanal</div>
+              <div class="menu-item-desc">Espresso con leche texturizada al vapor y microespuma sedosa.</div>
+            </div>
+            <div class="menu-item-price">L. 65</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Flat White Guaimaca</div>
+              <div class="menu-item-desc">Doble ristretto con fina capa de leche cremosa.</div>
+            </div>
+            <div class="menu-item-price">L. 70</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Café de Palo Tradicional</div>
+              <div class="menu-item-desc">Filtrado artesanal en chorreador tradicional con panela de la zona.</div>
+            </div>
+            <div class="menu-item-price">L. 35</div>
+          </div>
+        </div>
+
+        <!-- CATEGORY 2: BEBIDAS FRÍAS Y ESPECIALES -->
+        <div class="card">
+          <h3 class="menu-cat-title">Especialidades &amp; Fríos</h3>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Cold Brew Guaimaca <span class="promo-badge">Favorito</span></div>
+              <div class="menu-item-desc">Extracción en frío durante 18 horas, refrescante con notas a miel y frutos secos.</div>
+            </div>
+            <div class="menu-item-price">L. 75</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Latte de Miel &amp; Canela</div>
+              <div class="menu-item-desc">Espresso suave con miel de abeja local y toque de canela molida.</div>
+            </div>
+            <div class="menu-item-price">L. 80</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Frappé Mocha Cacao</div>
+              <div class="menu-item-desc">Café helado batido con chocolate fino hondureño y crema batida.</div>
+            </div>
+            <div class="menu-item-price">L. 85</div>
+          </div>
+
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Semita de Yema &amp; Pan de Casa</div>
+              <div class="menu-item-desc">Repostería artesanal horneada diariamente en Guaimaca.</div>
+            </div>
+            <div class="menu-item-price">L. 25</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL PROMOTIONS SECTION -->
+  <section id="promos" class="section-padding" style="background: rgba(0,0,0,0.2);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-tag">Ofertas Especiales</span>
+        <h2 class="section-title">Promociones <em>Locales</em></h2>
+        <p class="section-desc">Beneficios especiales para nuestros clientes habituales y comunidad de Guaimaca.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card text-center">
+          <span class="section-tag" style="color: var(--dorado-light);">Mañanas en Finca</span>
+          <h3 class="card-title">Combo Mañanero</h3>
+          <p class="card-text">Café filtrado o cappuccino + semita tradicional por solo L. 55 (Disponible de 7:00 AM a 10:00 AM).</p>
+        </div>
+
+        <div class="card text-center">
+          <span class="section-tag" style="color: var(--dorado-light);">Jueves de Refresco</span>
+          <h3 class="card-title">2x1 en Cold Brew</h3>
+          <p class="card-text">Todos los jueves disfruta de 2 Cold Brew artesanales al precio de 1 durante todo el día.</p>
+        </div>
+
+        <div class="card text-center">
+          <span class="section-tag" style="color: var(--dorado-light);">Cliente Frecuente</span>
+          <h3 class="card-title">Tarjeta de Fidelidad</h3>
+          <p class="card-text">Pide tu tarjeta en caja. Acumula 9 sellos en tus consumos y tu 10º café de especialidad es totalmente gratis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>5ta Café — Cafetería</h4>
+        <p>Espresso Bar y cafetería artesanal en Guaimaca, Francisco Morazán, Honduras.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Ubicación & Contacto</h4>
+        <p>Calle Principal, Parque Central, Guaimaca</p>
+        <p>Tel: +504 2769-5500</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Origen & Exportación B2B</a></li>
+          <li><a href="trade.html">Portal de Exportaciones</a></li>
+          <li><a href="#menu">Menú de Cafetería</a></li>
+          <li><a href="#promos">Promociones Locales</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Comunidad</h4>
+        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" class="ig-btn">
+          <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          <span>@5tacafeoficial</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 5ta Café — Sección de Cafetería y Retail Local.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hub de Exportación B2B & Muestras de Café Verde — 5ta Café</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..600;1,300..600&family=Playfair+Display:ital,wght@0,400..600;1,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/script.js" defer></script>
+</head>
+<body>
+
+<!-- ORBITING BEANS BG -->
+<div class="beans-bg">
+  <div class="bean-orbit bo1"></div>
+  <div class="bean-orbit bo2"></div>
+  <div class="bean-orbit bo3"></div>
+  <div class="bean-orbit bo4"></div>
+  <div class="bean-orbit bo5"></div>
+</div>
+
+<!-- HEADER / NAVIGATION -->
+<header class="main-header">
+  <div class="header-container">
+    <a href="index.html" class="header-brand">
+      <img src="assets/images/logo.png" alt="5ta Café Logo" class="header-logo">
+      <div class="header-title-wrap">
+        <span class="header-brand-name">5ta Café</span>
+        <span class="header-brand-sub">Trade Hub B2B</span>
+      </div>
+    </a>
+
+    <!-- DUAL BRAND SWITCHER -->
+    <div class="brand-switcher">
+      <a href="index.html" class="switch-tab active" title="Origen & Exportación B2B">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span>Exportación B2B</span>
+      </a>
+      <a href="cafe.html" class="switch-tab" title="Cafetería Local Guaimaca">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        <span>Cafetería Local</span>
+      </a>
+    </div>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Origen 1890</a></li>
+        <li><a href="#lotes" class="active">Lotes Disponibles</a></li>
+        <li><a href="#sample-request">Solicitud de Muestras</a></li>
+        <li><a href="cafe.html">Menú Local</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="main-wrapper">
+
+  <!-- B2B HERO -->
+  <section class="hero-banner">
+    <div class="container">
+      <p class="hero-eyebrow">Portal de Comercio Internacional B2B</p>
+      <h1 class="hero-title">Lotes de Café Verde &nbsp;&amp;<br><em>Solicitud de Muestras</em></h1>
+      <p class="hero-subtitle">Conectamos tostadores e importadores internacionales con café directo de finca en Guaimaca, Honduras. Lotes de especialidad, micro-lotes y volumen de contenedores con especificaciones de catación detalladas.</p>
+      
+      <div class="cta-group">
+        <a href="#lotes" class="btn btn-secondary">Ver Catálogo de Lotes</a>
+        <a href="#sample-request" class="btn btn-primary">Formulario de Muestras</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GREEN COFFEE LOT CATALOG -->
+  <section id="lotes" class="section-padding">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-tag">Disponibilidad de Cosecha 2025/2026</span>
+        <h2 class="section-title">Lotes de Exportación <em>Disponibles</em></h2>
+        <p class="section-desc">Todos nuestros lotes son preparados bajo normas de exportación SCAA / ICO, empacados en GrainPro con sacos de yute de 69 kg o cajas de vacío Ecotact.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <!-- LOT 1 -->
+        <div class="lot-card">
+          <div>
+            <div class="lot-header">
+              <div>
+                <span class="section-tag" style="margin:0;">Lote 5TA-01</span>
+                <h3 class="lot-title">Finca Santa Isabel — Parainema Washed</h3>
+              </div>
+              <span class="lot-badge">Micro-lote Disponible</span>
+            </div>
+
+            <div class="cupping-score">
+              <span class="score-num">87.5</span>
+              <span class="score-label">SCA Cupping Score</span>
+            </div>
+
+            <p style="font-size: 13px; color: var(--crema-dim); margin-bottom: 16px;">
+              <strong>Notas de Catación:</strong> Flor de azahar, panela dorada, acidez de manzana roja y cuerpo cremoso refinado.
+            </p>
+
+            <ul class="lot-specs-list">
+              <li><span>Variedad:</span> <span class="val">Parainema</span></li>
+              <li><span>Altitud:</span> <span class="val">1,480 msnm</span></li>
+              <li><span>Proceso:</span> <span class="val">Lavado Tradicional (32h)</span></li>
+              <li><span>Humedad:</span> <span class="val">11.0%</span></li>
+              <li><span>Volumen Disponible:</span> <span class="val">25 Sacos (69kg)</span></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-select-lot" data-lot="Lote 5TA-01: Parainema Washed (87.5 SCA)" style="width: 100%; margin-top: 16px;">
+            Seleccionar para Muestra
+          </button>
+        </div>
+
+        <!-- LOT 2 -->
+        <div class="lot-card">
+          <div>
+            <div class="lot-header">
+              <div>
+                <span class="section-tag" style="margin:0;">Lote 5TA-02</span>
+                <h3 class="lot-title">Las Tres Cruces — Catuai Honey</h3>
+              </div>
+              <span class="lot-badge">Cosecha Especial</span>
+            </div>
+
+            <div class="cupping-score">
+              <span class="score-num">88.0</span>
+              <span class="score-label">SCA Cupping Score</span>
+            </div>
+
+            <p style="font-size: 13px; color: var(--crema-dim); margin-bottom: 16px;">
+              <strong>Notas de Catación:</strong> Miel silvestre, durazno maduro, almendra tostada y dulzor persistente.
+            </p>
+
+            <ul class="lot-specs-list">
+              <li><span>Variedad:</span> <span class="val">Catuai Rojo & Amarillo</span></li>
+              <li><span>Altitud:</span> <span class="val">1,520 msnm</span></li>
+              <li><span>Proceso:</span> <span class="val">Yellow Honey (Miel)</span></li>
+              <li><span>Humedad:</span> <span class="val">10.8%</span></li>
+              <li><span>Volumen Disponible:</span> <span class="val">18 Sacos (69kg)</span></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-select-lot" data-lot="Lote 5TA-02: Catuai Honey (88.0 SCA)" style="width: 100%; margin-top: 16px;">
+            Seleccionar para Muestra
+          </button>
+        </div>
+
+        <!-- LOT 3 -->
+        <div class="lot-card">
+          <div>
+            <div class="lot-header">
+              <div>
+                <span class="section-tag" style="margin:0;">Lote 5TA-03</span>
+                <h3 class="lot-title">El Roble — Typica Natural Anaeróbico</h3>
+              </div>
+              <span class="lot-badge">Reserva de Finca</span>
+            </div>
+
+            <div class="cupping-score">
+              <span class="score-num">88.5</span>
+              <span class="score-label">SCA Cupping Score</span>
+            </div>
+
+            <p style="font-size: 13px; color: var(--crema-dim); margin-bottom: 16px;">
+              <strong>Notas de Catación:</strong> Cereza negra, nibs de cacao, frambuesa y acidez vinosa sofisticada.
+            </p>
+
+            <ul class="lot-specs-list">
+              <li><span>Variedad:</span> <span class="val">Typica Ancestral</span></li>
+              <li><span>Altitud:</span> <span class="val">1,600 msnm</span></li>
+              <li><span>Proceso:</span> <span class="val">Natural Fermentado Anaeróbico (72h)</span></li>
+              <li><span>Humedad:</span> <span class="val">11.2%</span></li>
+              <li><span>Volumen Disponible:</span> <span class="val">10 Sacos (69kg)</span></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-select-lot" data-lot="Lote 5TA-03: Typica Natural Anaeróbico (88.5 SCA)" style="width: 100%; margin-top: 16px;">
+            Seleccionar para Muestra
+          </button>
+        </div>
+
+        <!-- LOT 4 -->
+        <div class="lot-card">
+          <div>
+            <div class="lot-header">
+              <div>
+                <span class="section-tag" style="margin:0;">Lote 5TA-04</span>
+                <h3 class="lot-title">Guaimaca Estate Blend — Washed Regional</h3>
+              </div>
+              <span class="lot-badge">Contenedor Completo</span>
+            </div>
+
+            <div class="cupping-score">
+              <span class="score-num">85.0</span>
+              <span class="score-label">SCA Cupping Score</span>
+            </div>
+
+            <p style="font-size: 13px; color: var(--crema-dim); margin-bottom: 16px;">
+              <strong>Notas de Catación:</strong> Caramelo, chocolate con leche, avellana y acidez cítrica suave y uniforme.
+            </p>
+
+            <ul class="lot-specs-list">
+              <li><span>Variedad:</span> <span class="val">Parainema, Catuai, IHCAFE 90</span></li>
+              <li><span>Altitud:</span> <span class="val">1,250 - 1,400 msnm</span></li>
+              <li><span>Proceso:</span> <span class="val">Fully Washed</span></li>
+              <li><span>Humedad:</span> <span class="val">11.5%</span></li>
+              <li><span>Volumen Disponible:</span> <span class="val">1 Contenedor FCL (275 sacos)</span></li>
+            </ul>
+          </div>
+          <button type="button" class="btn btn-secondary btn-select-lot" data-lot="Lote 5TA-04: Guaimaca Estate Blend (85.0 SCA)" style="width: 100%; margin-top: 16px;">
+            Seleccionar para Muestra
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGISTICS & SHIPPING INFO -->
+  <section class="section-padding" style="background: rgba(0,0,0,0.2);">
+    <div class="container">
+      <div class="grid-3 text-left">
+        <div class="card">
+          <h3 class="card-title">Empaque de Exportación</h3>
+          <p class="card-text">Sacos de yute de 69kg empacados en bolsa protectora GrainPro o Ecotact hermética que garantiza la conservación óptima de humedad y aromas durante la navegación marítima.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Logística & Puerto de Salida</h3>
+          <p class="card-text">FOB Puerto Cortés, Honduras. Coordinación directa de documentación de exportación ICO, Certificados Fitosanitarios y Certificado de Origen comercial.</p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">Atención e Importación B2B</h3>
+          <p class="card-text">Canal directo con la gerencia de exportación en Guaimaca. Envíos de kits de muestras (250g o 500g) vía DHL / FedEx Express en 3 a 5 días hábiles a nivel global.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAMPLE REQUEST FORM SECTION -->
+  <section id="sample-request" class="section-padding">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 32px;">
+        <span class="section-tag">Portal de Importadores</span>
+        <h2 class="section-title">Formulario de Solicitud de <em>Muestras & Contratos B2B</em></h2>
+        <p class="section-desc">Complete sus datos de importador/tostador para recibir kits de muestra y fichas técnicas de los lotes de exportación de 5ta Café.</p>
+      </div>
+
+      <div class="b2b-form-container">
+        <form id="b2bSampleForm" novalidate>
+          <div id="formErrorMessage" style="display:none; background: rgba(229, 57, 53, 0.2); border: 1px solid #e53935; color: #ff8a80; padding: 12px 16px; border-radius: 4px; margin-bottom: 20px; font-size: 13px;"></div>
+
+          <div class="form-grid">
+            <!-- Mandatory Field 1: Business Name -->
+            <div class="form-group">
+              <label for="businessName" class="form-label">Nombre de Empresa / Importadora <span class="required-star">*</span></label>
+              <input type="text" id="businessName" name="businessName" class="form-control" placeholder="Ej: Artisanal Coffee Importers LLC" required>
+            </div>
+
+            <!-- Mandatory Field 2: Contact Name -->
+            <div class="form-group">
+              <label for="contactName" class="form-label">Nombre de Contacto <span class="required-star">*</span></label>
+              <input type="text" id="contactName" name="contactName" class="form-control" placeholder="Ej: Sarah Jenkins" required>
+            </div>
+
+            <!-- Mandatory Field 3: Email -->
+            <div class="form-group">
+              <label for="email" class="form-label">Correo Electrónico Corporativo <span class="required-star">*</span></label>
+              <input type="email" id="email" name="email" class="form-control" placeholder="sjenkins@coffeeimports.com" required>
+            </div>
+
+            <!-- Mandatory Field 4: Country / Region -->
+            <div class="form-group">
+              <label for="country" class="form-label">País / Región de Destino <span class="required-star">*</span></label>
+              <input type="text" id="country" name="country" class="form-control" placeholder="Ej: Estados Unidos, Alemania, Japón" required>
+            </div>
+
+            <!-- Mandatory Field 5: Target Volume -->
+            <div class="form-group">
+              <label for="targetVolume" class="form-label">Volumen Objetivo Estimado <span class="required-star">*</span></label>
+              <select id="targetVolume" name="targetVolume" class="form-control" required>
+                <option value="">-- Seleccionar Volumen --</option>
+                <option value="Kit de Muestra Inicial (250g - 1kg)">Kit de Muestra Inicial (250g - 1kg)</option>
+                <option value="Lote Pequeño / Micro-lote (1 - 10 Sacos)">Lote Pequeño / Micro-lote (1 - 10 Sacos)</option>
+                <option value="Pallet Promedio (11 - 50 Sacos)">Pallet Promedio (11 - 50 Sacos)</option>
+                <option value="Volumen Contenedor FCL (275+ Sacos)">Volumen Contenedor FCL (275+ Sacos)</option>
+                <option value="Contrato Multianual Directo">Contrato Multianual Directo</option>
+              </select>
+            </div>
+
+            <!-- Mandatory Field 6: Roasting Profile -->
+            <div class="form-group">
+              <label class="form-label">Perfil de Tostado Preferido <span class="required-star">*</span></label>
+              <div class="radio-option-group">
+                <label class="custom-radio">
+                  <input type="radio" name="roastProfile" value="Claro / Filtro (Light Roast)" required>
+                  <span>Claro / Filtro</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="roastProfile" value="Omni-Roast / Versátil">
+                  <span>Omni-Roast</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="roastProfile" value="Medio / Espresso Bar">
+                  <span>Medio / Espresso</span>
+                </label>
+                <label class="custom-radio">
+                  <input type="radio" name="roastProfile" value="Oscuro / Blend Tradicional">
+                  <span>Oscuro / Blend</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selected Lot Reference -->
+          <div class="form-group full-width">
+            <label for="selectedLot" class="form-label">Lote de Interés</label>
+            <input type="text" id="selectedLot" name="selectedLot" class="form-control" placeholder="Seleccione un lote arriba o escriba uno aquí (ej: Lote 5TA-01 Parainema)">
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group full-width">
+            <label for="notes" class="form-label">Detalles Adicionales de la Solicitud</label>
+            <textarea id="notes" name="notes" class="form-control" placeholder="Especifique dirección de envío de muestras, perfil de cliente, puerto de destino o preguntas específicas sobre cupping."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 16px; font-size: 14px; margin-top: 10px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+            Enviar Solicitud de Muestras B2B
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- CONFIRMATION MODAL -->
+<div id="confirmationModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="modal-icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h3 class="modal-title">¡Solicitud Recibida!</h3>
+    <p class="modal-body">
+      Gracias por su interés en los lotes de exportación de <strong>5ta Café</strong>.
+      Hemos registrado su solicitud <span id="modalRefCode" style="color:var(--dorado-light); font-weight:600;"></span> y nuestro equipo de exportaciones en Guaimaca contactará a su empresa en breve para enviar las fichas técnicas y preparar el despacho de su muestra.
+    </p>
+    <button type="button" id="closeModalBtn" class="btn btn-primary" style="width: 100%;">Entendido</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>5ta Café Exportación</h4>
+        <p>Departamento de comercio internacional y exportación directa de café verde de especialidad.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto Directo</h4>
+        <p><strong>Email:</strong> export@5tacafe.com</p>
+        <p><strong>Ubicación:</strong> Guaimaca, Francisco Morazán, Honduras</p>
+        <p><strong>Despacho Portuario:</strong> Puerto Cortés, Honduras</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="index.html">Página Principal de Productor</a></li>
+          <li><a href="#lotes">Lotes de Café Verde</a></li>
+          <li><a href="#sample-request">Solicitud de Muestras</a></li>
+          <li><a href="cafe.html">Sección Cafetería Local</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Síguenos</h4>
+        <a href="https://www.instagram.com/5tacafeoficial/" target="_blank" class="ig-btn">
+          <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+          <span>@5tacafeoficial</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 5ta Café — Portal de Comercio B2B & Exportación Internacional.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
